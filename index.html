@@ -948,28 +948,28 @@
             displayResults(xScore, yScore, quadrant, strength);
         });
 
-        function displayResults(xScore, yScore, quadrant, strength) {
-            // Hide form, show results
-            form.style.display = 'none';
-            resultsContainer.classList.add('show');
+function displayResults(xScore, yScore, quadrant, strength) {
+    // Hide form, show results
+    form.style.display = 'none';
+    resultsContainer.classList.add('show');
 
-            // Update diamond visualisation
-            const centerX = 250;
-            const centerY = 250;
-            const radius = 200;
+    // Update diamond visualisation
+    const centerX = 275;  // Changed from 250
+    const centerY = 250;
+    const radius = 200;
 
-            const userX = centerX + (xScore * radius);
-            const userY = centerY - (yScore * radius);
+    const userX = centerX + (xScore * radius);
+    const userY = centerY - (yScore * radius);
 
-            const userMarker = document.getElementById('userMarker');
-            const userMarkerPulse = document.getElementById('userMarkerPulse');
-            
-            userMarker.setAttribute('cx', userX);
-            userMarker.setAttribute('cy', userY);
-            userMarker.setAttribute('r', '12');
-            
-            userMarkerPulse.setAttribute('cx', userX);
-            userMarkerPulse.setAttribute('cy', userY);
+    const userMarker = document.getElementById('userMarker');
+    const userMarkerPulse = document.getElementById('userMarkerPulse');
+    
+    userMarker.setAttribute('cx', userX);
+    userMarker.setAttribute('cy', userY);
+    userMarker.setAttribute('r', '12');
+    
+    userMarkerPulse.setAttribute('cx', userX);
+    userMarkerPulse.setAttribute('cy', userY);
 
             // Update coordinate display
             document.getElementById('coordinateDisplay').innerHTML = `
