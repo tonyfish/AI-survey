@@ -1,9 +1,12 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en-GB">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>AI Governance Diamond Survey</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <style>
         * {
             margin: 0;
@@ -12,7 +15,7 @@
         }
 
         body {
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            font-family: 'Poppins', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
             background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
             min-height: 100vh;
             padding: 20px;
@@ -37,15 +40,19 @@
         .header h1 {
             font-size: 2em;
             margin-bottom: 10px;
+            font-weight: 600;
         }
 
         .header p {
             font-size: 1.1em;
             opacity: 0.9;
+            font-weight: 300;
         }
 
         .content {
             padding: 40px;
+            max-height: 70vh;
+            overflow-y: auto;
         }
 
         .question-block {
@@ -68,6 +75,7 @@
             color: #2d3748;
             margin-bottom: 20px;
             line-height: 1.6;
+            font-weight: 400;
         }
 
         .scale-container {
@@ -75,6 +83,7 @@
             justify-content: space-between;
             align-items: center;
             gap: 10px;
+            flex-wrap: wrap;
         }
 
         .scale-label {
@@ -116,6 +125,7 @@
             font-size: 0.9em;
             color: #4a5568;
             cursor: pointer;
+            font-weight: 400;
         }
 
         .email-section {
@@ -138,6 +148,15 @@
             border: 2px solid #cbd5e0;
             border-radius: 8px;
             font-size: 1em;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        .email-section small {
+            color: #718096;
+            font-size: 0.85em;
+            display: block;
+            margin-top: 5px;
+            font-weight: 300;
         }
 
         .submit-btn {
@@ -151,6 +170,7 @@
             cursor: pointer;
             width: 100%;
             transition: transform 0.2s, box-shadow 0.2s;
+            font-family: 'Poppins', sans-serif;
         }
 
         .submit-btn:hover {
@@ -188,6 +208,15 @@
         .result-text h3 {
             color: #667eea;
             margin-bottom: 15px;
+            font-weight: 600;
+        }
+
+        .result-text p {
+            font-weight: 400;
+        }
+
+        .result-text strong {
+            font-weight: 600;
         }
 
         .coordinate-display {
@@ -205,6 +234,7 @@
             border-radius: 8px;
             margin: 20px 0;
             display: none;
+            font-weight: 500;
         }
 
         @media (max-width: 768px) {
@@ -220,6 +250,10 @@
             .content {
                 padding: 20px;
             }
+
+            .header h1 {
+                font-size: 1.5em;
+            }
         }
     </style>
 </head>
@@ -234,7 +268,7 @@
             <form id="surveyForm">
                 <!-- Question 1 -->
                 <div class="question-block">
-                    <div class="question-number">Question 1 of 10</div>
+                    <div class="question-number">Question 1 of 15</div>
                     <div class="question-text">
                         AI development will likely lead to unprecedented improvements in human health, prosperity, and capability within the next 20 years.
                     </div>
@@ -268,7 +302,7 @@
 
                 <!-- Question 2 -->
                 <div class="question-block">
-                    <div class="question-number">Question 2 of 10</div>
+                    <div class="question-number">Question 2 of 15</div>
                     <div class="question-text">
                         Economic competition and market forces have already locked us into an AI development trajectory that no amount of regulation can significantly alter.
                     </div>
@@ -302,9 +336,9 @@
 
                 <!-- Question 3 -->
                 <div class="question-block">
-                    <div class="question-number">Question 3 of 10</div>
+                    <div class="question-number">Question 3 of 15</div>
                     <div class="question-text">
-                        Without major changes to current AI governance approaches, we are heading toward catastrophic outcomes such as loss of human control, mass unemployment, or existential risk.
+                        Without major changes to current AI governance approaches, we are heading towards catastrophic outcomes such as loss of human control, mass unemployment, or existential risk.
                     </div>
                     <div class="scale-container">
                         <div class="scale-label left">Strongly Disagree</div>
@@ -336,7 +370,7 @@
 
                 <!-- Question 4 -->
                 <div class="question-block">
-                    <div class="question-number">Question 4 of 10</div>
+                    <div class="question-number">Question 4 of 15</div>
                     <div class="question-text">
                         The technical and governance choices that AI labs, policymakers, and researchers make over the next 5 years will fundamentally determine whether AI goes well or badly for humanity.
                     </div>
@@ -370,9 +404,9 @@
 
                 <!-- Question 5 -->
                 <div class="question-block">
-                    <div class="question-number">Question 5 of 10</div>
+                    <div class="question-number">Question 5 of 15</div>
                     <div class="question-text">
-                        The inherent nature of intelligence and optimization means that sufficiently advanced AI systems will naturally tend toward outcomes that are dangerous for humans, regardless of our intentions.
+                        The inherent nature of intelligence and optimisation means that sufficiently advanced AI systems will naturally tend towards outcomes that are dangerous for humans, regardless of our intentions.
                     </div>
                     <div class="scale-container">
                         <div class="scale-label left">Strongly Disagree</div>
@@ -404,7 +438,7 @@
 
                 <!-- Question 6 -->
                 <div class="question-block">
-                    <div class="question-number">Question 6 of 10</div>
+                    <div class="question-number">Question 6 of 15</div>
                     <div class="question-text">
                         Most concerns about AI risks are overblown; the technology will naturally evolve in directions that benefit humanity.
                     </div>
@@ -438,9 +472,9 @@
 
                 <!-- Question 7 -->
                 <div class="question-block">
-                    <div class="question-number">Question 7 of 10</div>
+                    <div class="question-number">Question 7 of 15</div>
                     <div class="question-text">
-                        If all major AI labs and governments suddenly committed to prioritizing safety and beneficial outcomes, we could achieve a genuinely positive AI future.
+                        If all major AI labs and governments suddenly committed to prioritising safety and beneficial outcomes, we could achieve a genuinely positive AI future.
                     </div>
                     <div class="scale-container">
                         <div class="scale-label left">Strongly Disagree</div>
@@ -472,7 +506,7 @@
 
                 <!-- Question 8 -->
                 <div class="question-block">
-                    <div class="question-number">Question 8 of 10</div>
+                    <div class="question-number">Question 8 of 15</div>
                     <div class="question-text">
                         The forces driving AI development—profit motives, national competition, scientific curiosity—are too powerful for any governance framework to meaningfully constrain.
                     </div>
@@ -506,7 +540,7 @@
 
                 <!-- Question 9 -->
                 <div class="question-block">
-                    <div class="question-number">Question 9 of 10</div>
+                    <div class="question-number">Question 9 of 15</div>
                     <div class="question-text">
                         Current AI development practices, if unchanged, pose severe risks to human agency, democracy, and social stability.
                     </div>
@@ -540,7 +574,7 @@
 
                 <!-- Question 10 -->
                 <div class="question-block">
-                    <div class="question-number">Question 10 of 10</div>
+                    <div class="question-number">Question 10 of 15</div>
                     <div class="question-text">
                         Human decisions about AI deployment, safety research, and international cooperation will matter more than underlying technical or economic trends in determining outcomes.
                     </div>
@@ -572,10 +606,181 @@
                     </div>
                 </div>
 
+                <!-- Question 11 -->
+                <div class="question-block">
+                    <div class="question-number">Question 11 of 15</div>
+                    <div class="question-text">
+                        Individual AI researchers and engineers making ethical choices about what to build will meaningfully shape whether AI development goes well or badly.
+                    </div>
+                    <div class="scale-container">
+                        <div class="scale-label left">Strongly Disagree</div>
+                        <div class="radio-group">
+                            <div class="radio-option">
+                                <input type="radio" name="q11" value="1" id="q11_1" required>
+                                <label for="q11_1">1</label>
+                            </div>
+                            <div class="radio-option">
+                                <input type="radio" name="q11" value="2" id="q11_2">
+                                <label for="q11_2">2</label>
+                            </div>
+                            <div class="radio-option">
+                                <input type="radio" name="q11" value="3" id="q11_3">
+                                <label for="q11_3">3</label>
+                            </div>
+                            <div class="radio-option">
+                                <input type="radio" name="q11" value="4" id="q11_4">
+                                <label for="q11_4">4</label>
+                            </div>
+                            <div class="radio-option">
+                                <input type="radio" name="q11" value="5" id="q11_5">
+                                <label for="q11_5">5</label>
+                            </div>
+                        </div>
+                        <div class="scale-label right">Strongly Agree</div>
+                    </div>
+                </div>
+
+                <!-- Question 12 -->
+                <div class="question-block">
+                    <div class="question-number">Question 12 of 15</div>
+                    <div class="question-text">
+                        History shows that when breakthrough technologies emerge, market forces and competitive pressures inevitably determine how they develop, regardless of what ethicists, policymakers, or activists want.
+                    </div>
+                    <div class="scale-container">
+                        <div class="scale-label left">Strongly Disagree</div>
+                        <div class="radio-group">
+                            <div class="radio-option">
+                                <input type="radio" name="q12" value="1" id="q12_1" required>
+                                <label for="q12_1">1</label>
+                            </div>
+                            <div class="radio-option">
+                                <input type="radio" name="q12" value="2" id="q12_2">
+                                <label for="q12_2">2</label>
+                            </div>
+                            <div class="radio-option">
+                                <input type="radio" name="q12" value="3" id="q12_3">
+                                <label for="q12_3">3</label>
+                            </div>
+                            <div class="radio-option">
+                                <input type="radio" name="q12" value="4" id="q12_4">
+                                <label for="q12_4">4</label>
+                            </div>
+                            <div class="radio-option">
+                                <input type="radio" name="q12" value="5" id="q12_5">
+                                <label for="q12_5">5</label>
+                            </div>
+                        </div>
+                        <div class="scale-label right">Strongly Agree</div>
+                    </div>
+                </div>
+
+                <!-- Question 13 -->
+                <div class="question-block">
+                    <div class="question-number">Question 13 of 15</div>
+                    <div class="question-text">
+                        The current race dynamics between AI labs and nations make catastrophic outcomes increasingly likely, but we still have time to establish binding international agreements that could prevent the worst scenarios.
+                    </div>
+                    <div class="scale-container">
+                        <div class="scale-label left">Strongly Disagree</div>
+                        <div class="radio-group">
+                            <div class="radio-option">
+                                <input type="radio" name="q13" value="1" id="q13_1" required>
+                                <label for="q13_1">1</label>
+                            </div>
+                            <div class="radio-option">
+                                <input type="radio" name="q13" value="2" id="q13_2">
+                                <label for="q13_2">2</label>
+                            </div>
+                            <div class="radio-option">
+                                <input type="radio" name="q13" value="3" id="q13_3">
+                                <label for="q13_3">3</label>
+                            </div>
+                            <div class="radio-option">
+                                <input type="radio" name="q13" value="4" id="q13_4">
+                                <label for="q13_4">4</label>
+                            </div>
+                            <div class="radio-option">
+                                <input type="radio" name="q13" value="5" id="q13_5">
+                                <label for="q13_5">5</label>
+                            </div>
+                        </div>
+                        <div class="scale-label right">Strongly Agree</div>
+                    </div>
+                </div>
+
+                <!-- Question 14 -->
+                <div class="question-block">
+                    <div class="question-number">Question 14 of 15</div>
+                    <div class="question-text">
+                        Attempts to heavily regulate AI development will backfire by slowing beneficial progress more than they reduce risks, since the technology naturally trends towards good outcomes.
+                    </div>
+                    <div class="scale-container">
+                        <div class="scale-label left">Strongly Disagree</div>
+                        <div class="radio-group">
+                            <div class="radio-option">
+                                <input type="radio" name="q14" value="1" id="q14_1" required>
+                                <label for="q14_1">1</label>
+                            </div>
+                            <div class="radio-option">
+                                <input type="radio" name="q14" value="2" id="q14_2">
+                                <label for="q14_2">2</label>
+                            </div>
+                            <div class="radio-option">
+                                <input type="radio" name="q14" value="3" id="q14_3">
+                                <label for="q14_3">3</label>
+                            </div>
+                            <div class="radio-option">
+                                <input type="radio" name="q14" value="4" id="q14_4">
+                                <label for="q14_4">4</label>
+                            </div>
+                            <div class="radio-option">
+                                <input type="radio" name="q14" value="5" id="q14_5">
+                                <label for="q14_5">5</label>
+                            </div>
+                        </div>
+                        <div class="scale-label right">Strongly Agree</div>
+                    </div>
+                </div>
+
+                <!-- Question 15 -->
+                <div class="question-block">
+                    <div class="question-number">Question 15 of 15</div>
+                    <div class="question-text">
+                        Humanity's inability to coordinate on global challenges like climate change demonstrates that we will also fail to coordinate effectively on AI governance, regardless of how much we recognise the need.
+                    </div>
+                    <div class="scale-container">
+                        <div class="scale-label left">Strongly Disagree</div>
+                        <div class="radio-group">
+                            <div class="radio-option">
+                                <input type="radio" name="q15" value="1" id="q15_1" required>
+                                <label for="q15_1">1</label>
+                            </div>
+                            <div class="radio-option">
+                                <input type="radio" name="q15" value="2" id="q15_2">
+                                <label for="q15_2">2</label>
+                            </div>
+                            <div class="radio-option">
+                                <input type="radio" name="q15" value="3" id="q15_3">
+                                <label for="q15_3">3</label>
+                            </div>
+                            <div class="radio-option">
+                                <input type="radio" name="q15" value="4" id="q15_4">
+                                <label for="q15_4">4</label>
+                            </div>
+                            <div class="radio-option">
+                                <input type="radio" name="q15" value="5" id="q15_5">
+                                <label for="q15_5">5</label>
+                            </div>
+                        </div>
+                        <div class="scale-label right">Strongly Agree</div>
+                    </div>
+                </div>
+
                 <!-- Optional Email -->
                 <div class="email-section">
-                    <label for="email">Email (optional - if you'd like to receive your results):</label>
+                    <label for="email">Email (optional - leave blank if you prefer):</label>
                     <input type="email" id="email" name="email" placeholder="your.email@example.com">
+                    <small>Your email is optional and only used if you want to receive updates. You can leave this blank.</small>
                 </div>
 
                 <div class="error-message" id="errorMessage"></div>
@@ -587,7 +792,7 @@
 
             <!-- Results Section -->
             <div class="results-container" id="resultsContainer">
-                <h2 style="color: #667eea; margin-bottom: 20px;">Your AI Governance Position</h2>
+                <h2 style="color: #667eea; margin-bottom: 20px; font-weight: 600;">Your AI Governance Position</h2>
                 
                 <div class="diamond-viz">
                     <svg id="diamondSvg" viewBox="0 0 500 500" xmlns="http://www.w3.org/2000/svg">
@@ -595,15 +800,15 @@
                         <polygon points="250,50 450,250 250,450 50,250" 
                                 fill="none" stroke="#cbd5e0" stroke-width="2"/>
                         
-                        <!-- Quadrant fills with transparency -->
+                        <!-- Quadrant fills with stronger colours -->
                         <polygon points="250,50 450,250 250,250" 
-                                fill="#dcfce7" opacity="0.3"/>
+                                fill="#86efac" opacity="0.5"/>
                         <polygon points="50,250 250,50 250,250" 
-                                fill="#fee2e2" opacity="0.3"/>
+                                fill="#fca5a5" opacity="0.5"/>
                         <polygon points="50,250 250,250 250,450" 
-                                fill="#fef3c7" opacity="0.3"/>
+                                fill="#fde047" opacity="0.5"/>
                         <polygon points="250,250 450,250 250,450" 
-                                fill="#dbeafe" opacity="0.3"/>
+                                fill="#93c5fd" opacity="0.5"/>
                         
                         <!-- Axis lines -->
                         <line x1="50" y1="250" x2="450" y2="250" 
@@ -611,13 +816,19 @@
                         <line x1="250" y1="50" x2="250" y2="450" 
                               stroke="#94a3b8" stroke-width="1" stroke-dasharray="5,5"/>
                         
-                        <!-- Labels -->
-                        <text x="250" y="30" text-anchor="middle" fill="#4a5568" font-size="14" font-weight="600">Kairotic</text>
-                        <text x="250" y="485" text-anchor="middle" fill="#4a5568" font-size="14" font-weight="600">Heimatic</text>
-                        <text x="30" y="255" text-anchor="middle" fill="#4a5568" font-size="14" font-weight="600">Dystopic</text>
-                        <text x="470" y="255" text-anchor="middle" fill="#4a5568" font-size="14" font-weight="600">Utopic</text>
+                        <!-- Labels - moved away from corners -->
+                        <text x="250" y="30" text-anchor="middle" fill="#4a5568" font-size="14" font-weight="600" font-family="Poppins">Kairotic</text>
+                        <text x="250" y="485" text-anchor="middle" fill="#4a5568" font-size="14" font-weight="600" font-family="Poppins">Heimatic</text>
+                        <text x="60" y="255" text-anchor="middle" fill="#4a5568" font-size="14" font-weight="600" font-family="Poppins">Dystopic</text>
+                        <text x="440" y="255" text-anchor="middle" fill="#4a5568" font-size="14" font-weight="600" font-family="Poppins">Utopic</text>
                         
-                        <!-- User position marker (will be added by JS) -->
+                        <!-- Quadrant labels -->
+                        <text x="150" y="140" text-anchor="middle" fill="#991b1b" font-size="12" opacity="0.6" font-family="Poppins">Vigil</text>
+                        <text x="350" y="140" text-anchor="middle" fill="#065f46" font-size="12" opacity="0.6" font-family="Poppins">Gardeners</text>
+                        <text x="150" y="365" text-anchor="middle" fill="#92400e" font-size="12" opacity="0.6" font-family="Poppins">Witnesses</text>
+                        <text x="350" y="365" text-anchor="middle" fill="#1e40af" font-size="12" opacity="0.6" font-family="Poppins">Current-Riders</text>
+                        
+                        <!-- User position marker -->
                         <circle id="userMarker" cx="250" cy="250" r="0" fill="#667eea" stroke="white" stroke-width="3"/>
                         <circle id="userMarkerPulse" cx="250" cy="250" r="0" fill="#667eea" opacity="0.3">
                             <animate attributeName="r" from="0" to="20" dur="1.5s" repeatCount="indefinite"/>
@@ -626,13 +837,9 @@
                     </svg>
                 </div>
 
-                <div class="coordinate-display" id="coordinateDisplay">
-                    <!-- Filled by JS -->
-                </div>
+                <div class="coordinate-display" id="coordinateDisplay"></div>
 
-                <div class="result-text" id="resultText">
-                    <!-- Filled by JS -->
-                </div>
+                <div class="result-text" id="resultText"></div>
 
                 <button class="submit-btn" onclick="location.reload()" style="margin-top: 30px;">
                     Take Survey Again
@@ -643,7 +850,7 @@
 
     <script>
         // REPLACE THIS WITH YOUR GOOGLE APPS SCRIPT WEB APP URL
-        const GOOGLE_SCRIPT_URL = 'https://script.google.com/a/macros/amfventures.com/s/AKfycbxVjlJZdBdkdCWXY2NUIohjshwt55GpPq-I5Y6N3nc7rkolYb-AF-JZVeJ3zfoHF9LJiQ/exec';
+        const GOOGLE_SCRIPT_URL = 'YOUR_GOOGLE_APPS_SCRIPT_URL_HERE';
 
         const form = document.getElementById('surveyForm');
         const resultsContainer = document.getElementById('resultsContainer');
@@ -654,7 +861,7 @@
             
             // Get all responses
             const responses = {};
-            for (let i = 1; i <= 10; i++) {
+            for (let i = 1; i <= 15; i++) {
                 const value = document.querySelector(`input[name="q${i}"]:checked`)?.value;
                 if (!value) {
                     showError(`Please answer question ${i}`);
@@ -663,39 +870,67 @@
                 responses[`q${i}`] = parseInt(value);
             }
 
-            // Calculate scores
-            const horizontalScore = (responses.q1 + responses.q6 + responses.q7) - 
-                                  (responses.q3 + responses.q5 + responses.q9);
-            const verticalScore = (responses.q4 + responses.q7 + responses.q10) - 
-                                (responses.q2 + responses.q5 + responses.q8);
+            // Calculate scores with new formulas for 15 questions
+            // Q14 needs reverse scoring for horizontal axis
+            const q14Reversed = 6 - responses.q14; // Reverse: 1->5, 2->4, 3->3, 4->2, 5->1
+            
+            const horizontalScore = (responses.q1 + responses.q6 + responses.q7 + q14Reversed) - 
+                                  (responses.q3 + responses.q5 + responses.q9 + responses.q13);
+            
+            const verticalScore = (responses.q4 + responses.q7 + responses.q10 + responses.q11 + responses.q13) - 
+                                (responses.q2 + responses.q5 + responses.q8 + responses.q12 + responses.q15);
 
-            const xScore = (horizontalScore / 12).toFixed(2);
-            const yScore = (verticalScore / 12).toFixed(2);
+            const xScore = (horizontalScore / 16).toFixed(2);
+            const yScore = (verticalScore / 20).toFixed(2);
             const strength = Math.sqrt(xScore * xScore + yScore * yScore).toFixed(2);
 
             // Determine quadrant
             let quadrant;
-            if (xScore > 0 && yScore > 0) quadrant = 'Utopic-Kairotic (Gardeners)';
-            else if (xScore < 0 && yScore > 0) quadrant = 'Dystopic-Kairotic (Vigil)';
-            else if (xScore < 0 && yScore < 0) quadrant = 'Dystopic-Heimatic (Witnesses)';
-            else if (xScore > 0 && yScore < 0) quadrant = 'Utopic-Heimatic (Current-Riders)';
-            else quadrant = 'Center (Mixed/Uncertain)';
+            if (Math.abs(parseFloat(xScore)) < 0.15 && Math.abs(parseFloat(yScore)) < 0.15) {
+                quadrant = 'Centre (Mixed/Uncertain)';
+            } else if (xScore > 0 && yScore > 0) {
+                quadrant = 'Utopic-Kairotic (Gardeners)';
+            } else if (xScore < 0 && yScore > 0) {
+                quadrant = 'Dystopic-Kairotic (Vigil)';
+            } else if (xScore < 0 && yScore < 0) {
+                quadrant = 'Dystopic-Heimatic (Witnesses)';
+            } else if (xScore > 0 && yScore < 0) {
+                quadrant = 'Utopic-Heimatic (Current-Riders)';
+            } else {
+                quadrant = 'Centre (Mixed/Uncertain)';
+            }
 
             // Get email
-            const email = document.getElementById('email').value;
+            const emailInput = document.getElementById('email');
+            const email = emailInput && emailInput.value ? emailInput.value.trim() : '';
+
+            // Prepare data object with explicit values
+            const data = {
+                q1: parseInt(responses.q1),
+                q2: parseInt(responses.q2),
+                q3: parseInt(responses.q3),
+                q4: parseInt(responses.q4),
+                q5: parseInt(responses.q5),
+                q6: parseInt(responses.q6),
+                q7: parseInt(responses.q7),
+                q8: parseInt(responses.q8),
+                q9: parseInt(responses.q9),
+                q10: parseInt(responses.q10),
+                q11: parseInt(responses.q11),
+                q12: parseInt(responses.q12),
+                q13: parseInt(responses.q13),
+                q14: parseInt(responses.q14),
+                q15: parseInt(responses.q15),
+                xScore: parseFloat(xScore),
+                yScore: parseFloat(yScore),
+                quadrant: quadrant,
+                strength: parseFloat(strength),
+                email: email
+            };
 
             // Send to Google Sheets
-            try {
-                const data = {
-                    ...responses,
-                    xScore: parseFloat(xScore),
-                    yScore: parseFloat(yScore),
-                    quadrant: quadrant,
-                    strength: parseFloat(strength),
-                    email: email
-                };
-
-                if (GOOGLE_SCRIPT_URL !== 'YOUR_GOOGLE_APPS_SCRIPT_URL_HERE') {
+            if (GOOGLE_SCRIPT_URL !== 'YOUR_GOOGLE_APPS_SCRIPT_URL_HERE') {
+                try {
                     await fetch(GOOGLE_SCRIPT_URL, {
                         method: 'POST',
                         mode: 'no-cors',
@@ -704,9 +939,9 @@
                         },
                         body: JSON.stringify(data)
                     });
+                } catch (error) {
+                    console.error('Error saving data:', error);
                 }
-            } catch (error) {
-                console.error('Error saving data:', error);
             }
 
             // Display results
@@ -718,9 +953,7 @@
             form.style.display = 'none';
             resultsContainer.classList.add('show');
 
-            // Update diamond visualization
-            const svgWidth = 500;
-            const svgHeight = 500;
+            // Update diamond visualisation
             const centerX = 250;
             const centerY = 250;
             const radius = 200;
@@ -753,9 +986,10 @@
         }
 
         function getStrengthLabel(strength) {
-            if (strength < 0.3) return '(Weak - Near Center)';
-            if (strength < 0.6) return '(Moderate)';
-            if (strength < 1.0) return '(Strong)';
+            const s = parseFloat(strength);
+            if (s < 0.3) return '(Weak - Near Centre)';
+            if (s < 0.6) return '(Moderate)';
+            if (s < 1.0) return '(Strong)';
             return '(Very Strong - Corner Position)';
         }
 
@@ -767,7 +1001,7 @@
                     <p>You believe the future can be bright, but only through deliberate, thoughtful choices. You see AI governance as cultivation—requiring sustained effort, wise decision-making, and careful institutional design. You're excited about AI's potential but insist on guardrails, testing, and democratic participation in shaping how these systems develop.</p>
                     <p><strong>Your Motto:</strong> "We can do this if we're smart about it."</p>
                     <p><strong>Your Superpower:</strong> Holding optimism and caution simultaneously.</p>
-                    ${strength < 0.3 ? '<p><em>Note: Your position is close to the center, suggesting you hold mixed views or are still forming your perspective.</em></p>' : ''}
+                    ${parseFloat(strength) < 0.3 ? '<p><em>Note: Your position is close to the centre, suggesting you hold mixed views or are still forming your perspective.</em></p>' : ''}
                 `,
                 'Dystopic-Kairotic (Vigil)': `
                     <h3>🔥 The Vigil</h3>
@@ -775,41 +1009,42 @@
                     <p>You see genuine catastrophic risks ahead, but you maintain that our choices still matter profoundly. Every safety measure, every regulation, every moment of deliberation could make the difference between catastrophe and survival. You're driven by urgency without despair—you refuse to accept that disaster is inevitable.</p>
                     <p><strong>Your Motto:</strong> "We're running out of time, but there's still time."</p>
                     <p><strong>Your Superpower:</strong> Maintaining agency in the face of existential risk.</p>
-                    ${strength < 0.3 ? '<p><em>Note: Your position is close to the center, suggesting you hold mixed views or are still forming your perspective.</em></p>' : ''}
+                    ${parseFloat(strength) < 0.3 ? '<p><em>Note: Your position is close to the centre, suggesting you hold mixed views or are still forming your perspective.</em></p>' : ''}
                 `,
                 'Dystopic-Heimatic (Witnesses)': `
                     <h3>⏳ The Witnesses</h3>
                     <p><strong>Core Belief:</strong> Catastrophe is inevitable—the trap is already sprung.</p>
                     <p>You see powerful structural forces—economic incentives, competitive dynamics, the nature of intelligence itself—that make dangerous outcomes essentially unavoidable. The race dynamics are too strong, the coordination problems too hard. You may still act, but you do so knowing that deeper currents have already determined the trajectory.</p>
                     <p><strong>Your Motto:</strong> "The river flows where it must."</p>
-                    <p><strong>Your Superpower:</strong> Clearheaded analysis of structural forces without wishful thinking.</p>
-                    ${strength < 0.3 ? '<p><em>Note: Your position is close to the center, suggesting you hold mixed views or are still forming your perspective.</em></p>' : ''}
+                    <p><strong>Your Superpower:</strong> Clear-headed analysis of structural forces without wishful thinking.</p>
+                    ${parseFloat(strength) < 0.3 ? '<p><em>Note: Your position is close to the centre, suggesting you hold mixed views or are still forming your perspective.</em></p>' : ''}
                 `,
                 'Utopic-Heimatic (Current-Riders)': `
                     <h3>🚀 The Current-Riders</h3>
                     <p><strong>Core Belief:</strong> Good outcomes are inevitable—trust the process.</p>
-                    <p>You believe that the forces driving AI development—innovation, competition, the nature of intelligence—naturally favor beneficial outcomes. Intelligence tends toward cooperation and truth. Markets favor useful systems. Progress is self-correcting. Your role is to remove obstacles and let the benevolent tide carry humanity forward.</p>
+                    <p>You believe that the forces driving AI development—innovation, competition, the nature of intelligence—naturally favour beneficial outcomes. Intelligence tends towards cooperation and truth. Markets favour useful systems. Progress is self-correcting. Your role is to remove obstacles and let the benevolent tide carry humanity forwards.</p>
                     <p><strong>Your Motto:</strong> "Let's build—the future is bright."</p>
                     <p><strong>Your Superpower:</strong> Unburdened by anxiety, able to move fast without second-guessing.</p>
-                    ${strength < 0.3 ? '<p><em>Note: Your position is close to the center, suggesting you hold mixed views or are still forming your perspective.</em></p>' : ''}
+                    ${parseFloat(strength) < 0.3 ? '<p><em>Note: Your position is close to the centre, suggesting you hold mixed views or are still forming your perspective.</em></p>' : ''}
                 `,
-                'Center (Mixed/Uncertain)': `
-                    <h3>🎯 The Pragmatic Center</h3>
+                'Centre (Mixed/Uncertain)': `
+                    <h3>🎯 The Pragmatic Centre</h3>
                     <p><strong>Position:</strong> You hold mixed or uncertain views about both outcomes and agency.</p>
                     <p>You may be genuinely uncertain about where AI is heading and how much control we have. Or you might see validity in multiple perspectives and refuse simplistic narratives. This position can reflect sophistication—understanding that reality rarely fits into neat categories—or it may mean you're still forming your views.</p>
                     <p><strong>Your Approach:</strong> Make things incrementally better in whatever ways seem tractable, without strong commitments to grand narratives.</p>
                     <p>${Math.abs(xScore) > Math.abs(yScore) ? 
-                        'You lean slightly toward the ' + (xScore > 0 ? 'optimistic' : 'pessimistic') + ' side in terms of outcomes.' :
-                        'You lean slightly toward believing ' + (yScore > 0 ? 'choices matter' : 'forces are determinative') + '.'}</p>
+                        'You lean slightly towards the ' + (xScore > 0 ? 'optimistic' : 'pessimistic') + ' side in terms of outcomes.' :
+                        'You lean slightly towards believing ' + (yScore > 0 ? 'choices matter' : 'forces are determinative') + '.'}</p>
                 `
             };
 
-            return descriptions[quadrant] || descriptions['Center (Mixed/Uncertain)'];
+            return descriptions[quadrant] || descriptions['Centre (Mixed/Uncertain)'];
         }
 
         function showError(message) {
             errorMessage.textContent = message;
             errorMessage.style.display = 'block';
+            errorMessage.scrollIntoView({ behavior: 'smooth', block: 'center' });
             setTimeout(() => {
                 errorMessage.style.display = 'none';
             }, 5000);
