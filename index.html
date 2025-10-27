@@ -193,7 +193,7 @@
 
         .diamond-viz {
             width: 100%;
-            max-width: 500px;
+            max-width: 550px;
             margin: 30px auto;
         }
 
@@ -795,42 +795,42 @@
                 <h2 style="color: #667eea; margin-bottom: 20px; font-weight: 600;">Your AI Governance Position</h2>
                 
                 <div class="diamond-viz">
-                    <svg id="diamondSvg" viewBox="0 0 500 500" xmlns="http://www.w3.org/2000/svg">
+                    <svg id="diamondSvg" viewBox="0 0 550 500" xmlns="http://www.w3.org/2000/svg">
                         <!-- Diamond outline -->
-                        <polygon points="250,50 450,250 250,450 50,250" 
+                        <polygon points="275,50 475,250 275,450 75,250" 
                                 fill="none" stroke="#cbd5e0" stroke-width="2"/>
                         
                         <!-- Quadrant fills with stronger colours -->
-                        <polygon points="250,50 450,250 250,250" 
+                        <polygon points="275,50 475,250 275,250" 
                                 fill="#86efac" opacity="0.5"/>
-                        <polygon points="50,250 250,50 250,250" 
+                        <polygon points="75,250 275,50 275,250" 
                                 fill="#fca5a5" opacity="0.5"/>
-                        <polygon points="50,250 250,250 250,450" 
+                        <polygon points="75,250 275,250 275,450" 
                                 fill="#fde047" opacity="0.5"/>
-                        <polygon points="250,250 450,250 250,450" 
+                        <polygon points="275,250 475,250 275,450" 
                                 fill="#93c5fd" opacity="0.5"/>
                         
                         <!-- Axis lines -->
-                        <line x1="50" y1="250" x2="450" y2="250" 
+                        <line x1="75" y1="250" x2="475" y2="250" 
                               stroke="#94a3b8" stroke-width="1" stroke-dasharray="5,5"/>
-                        <line x1="250" y1="50" x2="250" y2="450" 
+                        <line x1="275" y1="50" x2="275" y2="450" 
                               stroke="#94a3b8" stroke-width="1" stroke-dasharray="5,5"/>
                         
-                        <!-- Labels - moved away from corners -->
-                        <text x="250" y="30" text-anchor="middle" fill="#4a5568" font-size="14" font-weight="600" font-family="Poppins">Kairotic</text>
-                        <text x="250" y="485" text-anchor="middle" fill="#4a5568" font-size="14" font-weight="600" font-family="Poppins">Heimatic</text>
-                        <text x="60" y="255" text-anchor="middle" fill="#4a5568" font-size="14" font-weight="600" font-family="Poppins">Dystopic</text>
-                        <text x="440" y="255" text-anchor="middle" fill="#4a5568" font-size="14" font-weight="600" font-family="Poppins">Utopic</text>
+                        <!-- Main axis labels - OUTSIDE diamond with clear margin, bigger font -->
+                        <text x="275" y="30" text-anchor="middle" fill="#4a5568" font-size="18" font-weight="600" font-family="Poppins">Kairotic</text>
+                        <text x="275" y="485" text-anchor="middle" fill="#4a5568" font-size="18" font-weight="600" font-family="Poppins">Heimatic</text>
+                        <text x="25" y="255" text-anchor="middle" fill="#4a5568" font-size="18" font-weight="600" font-family="Poppins">Dystopic</text>
+                        <text x="525" y="255" text-anchor="middle" fill="#4a5568" font-size="18" font-weight="600" font-family="Poppins">Utopic</text>
                         
-                        <!-- Quadrant labels -->
-                        <text x="150" y="140" text-anchor="middle" fill="#991b1b" font-size="12" opacity="0.6" font-family="Poppins">Vigil</text>
-                        <text x="350" y="140" text-anchor="middle" fill="#065f46" font-size="12" opacity="0.6" font-family="Poppins">Gardeners</text>
-                        <text x="150" y="365" text-anchor="middle" fill="#92400e" font-size="12" opacity="0.6" font-family="Poppins">Witnesses</text>
-                        <text x="350" y="365" text-anchor="middle" fill="#1e40af" font-size="12" opacity="0.6" font-family="Poppins">Current-Riders</text>
+                        <!-- Quadrant labels - INSIDE diamond, away from boundaries, bigger font -->
+                        <text x="175" y="160" text-anchor="middle" fill="#991b1b" font-size="16" opacity="0.7" font-family="Poppins" font-weight="500">Vigil</text>
+                        <text x="375" y="160" text-anchor="middle" fill="#065f46" font-size="16" opacity="0.7" font-family="Poppins" font-weight="500">Gardeners</text>
+                        <text x="175" y="350" text-anchor="middle" fill="#92400e" font-size="16" opacity="0.7" font-family="Poppins" font-weight="500">Witnesses</text>
+                        <text x="375" y="350" text-anchor="middle" fill="#1e40af" font-size="16" opacity="0.7" font-family="Poppins" font-weight="500">Current-Riders</text>
                         
                         <!-- User position marker -->
-                        <circle id="userMarker" cx="250" cy="250" r="0" fill="#667eea" stroke="white" stroke-width="3"/>
-                        <circle id="userMarkerPulse" cx="250" cy="250" r="0" fill="#667eea" opacity="0.3">
+                        <circle id="userMarker" cx="275" cy="250" r="0" fill="#667eea" stroke="white" stroke-width="3"/>
+                        <circle id="userMarkerPulse" cx="275" cy="250" r="0" fill="#667eea" opacity="0.3">
                             <animate attributeName="r" from="0" to="20" dur="1.5s" repeatCount="indefinite"/>
                             <animate attributeName="opacity" from="0.3" to="0" dur="1.5s" repeatCount="indefinite"/>
                         </circle>
@@ -849,7 +849,7 @@
     </div>
 
     <script>
-        // REPLACE THIS WITH YOUR GOOGLE APPS SCRIPT WEB APP URL
+        // Your Google Apps Script Web App URL
         const GOOGLE_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbxVjlJZdBdkdCWXY2NUIohjshwt55GpPq-I5Y6N3nc7rkolYb-AF-JZVeJ3zfoHF9LJiQ/exec';
 
         const form = document.getElementById('surveyForm');
@@ -900,7 +900,7 @@
                 quadrant = 'Centre (Mixed/Uncertain)';
             }
 
-            // Get email
+            // Get email - ensure it's always a string, never null or undefined
             const emailInput = document.getElementById('email');
             const email = emailInput && emailInput.value ? emailInput.value.trim() : '';
 
@@ -929,47 +929,45 @@
             };
 
             // Send to Google Sheets
-            if (GOOGLE_SCRIPT_URL !== 'YOUR_GOOGLE_APPS_SCRIPT_URL_HERE') {
-                try {
-                    await fetch(GOOGLE_SCRIPT_URL, {
-                        method: 'POST',
-                        mode: 'no-cors',
-                        headers: {
-                            'Content-Type': 'application/json',
-                        },
-                        body: JSON.stringify(data)
-                    });
-                } catch (error) {
-                    console.error('Error saving data:', error);
-                }
+            try {
+                await fetch(GOOGLE_SCRIPT_URL, {
+                    method: 'POST',
+                    mode: 'no-cors',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify(data)
+                });
+            } catch (error) {
+                console.error('Error saving data:', error);
             }
 
             // Display results
             displayResults(xScore, yScore, quadrant, strength);
         });
 
-function displayResults(xScore, yScore, quadrant, strength) {
-    // Hide form, show results
-    form.style.display = 'none';
-    resultsContainer.classList.add('show');
+        function displayResults(xScore, yScore, quadrant, strength) {
+            // Hide form, show results
+            form.style.display = 'none';
+            resultsContainer.classList.add('show');
 
-    // Update diamond visualisation
-    const centerX = 205;  
-    const centerY = 250;
-    const radius = 200;
+            // Update diamond visualisation - adjusted for new viewBox
+            const centerX = 275;  // Updated from 250
+            const centerY = 250;
+            const radius = 200;
 
-    const userX = centerX + (xScore * radius);
-    const userY = centerY - (yScore * radius);
+            const userX = centerX + (xScore * radius);
+            const userY = centerY - (yScore * radius);
 
-    const userMarker = document.getElementById('userMarker');
-    const userMarkerPulse = document.getElementById('userMarkerPulse');
-    
-    userMarker.setAttribute('cx', userX);
-    userMarker.setAttribute('cy', userY);
-    userMarker.setAttribute('r', '12');
-    
-    userMarkerPulse.setAttribute('cx', userX);
-    userMarkerPulse.setAttribute('cy', userY);
+            const userMarker = document.getElementById('userMarker');
+            const userMarkerPulse = document.getElementById('userMarkerPulse');
+            
+            userMarker.setAttribute('cx', userX);
+            userMarker.setAttribute('cy', userY);
+            userMarker.setAttribute('r', '12');
+            
+            userMarkerPulse.setAttribute('cx', userX);
+            userMarkerPulse.setAttribute('cy', userY);
 
             // Update coordinate display
             document.getElementById('coordinateDisplay').innerHTML = `
