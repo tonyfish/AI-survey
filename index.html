@@ -193,7 +193,7 @@
 
         .diamond-viz {
             width: 100%;
-            max-width: 550px;
+            max-width: 700px;
             margin: 30px auto;
         }
 
@@ -795,46 +795,46 @@
                 <h2 style="color: #667eea; margin-bottom: 20px; font-weight: 600;">Your AI Governance Position</h2>
                 
                 <div class="diamond-viz">
-               <svg id="diamondSvg" viewBox="-50 0 700 500" xmlns="http://www.w3.org/2000/svg">
-    <!-- Diamond outline - SHIFTED RIGHT -->
-    <polygon points="325,50 525,250 325,450 125,250" 
-            fill="none" stroke="#cbd5e0" stroke-width="2"/>
-    
-    <!-- Quadrant fills with stronger colours - SHIFTED RIGHT -->
-    <polygon points="325,50 525,250 325,250" 
-            fill="#86efac" opacity="0.5"/>
-    <polygon points="125,250 325,50 325,250" 
-            fill="#fca5a5" opacity="0.5"/>
-    <polygon points="125,250 325,250 325,450" 
-            fill="#fde047" opacity="0.5"/>
-    <polygon points="325,250 525,250 325,450" 
-            fill="#93c5fd" opacity="0.5"/>
-    
-    <!-- Axis lines - SHIFTED RIGHT -->
-    <line x1="125" y1="250" x2="525" y2="250" 
-          stroke="#94a3b8" stroke-width="1" stroke-dasharray="5,5"/>
-    <line x1="325" y1="50" x2="325" y2="450" 
-          stroke="#94a3b8" stroke-width="1" stroke-dasharray="5,5"/>
-    
-    <!-- Main axis labels - SHIFTED RIGHT -->
-    <text x="325" y="30" text-anchor="middle" fill="#4a5568" font-size="18" font-weight="600" font-family="Poppins">Kairotic</text>
-    <text x="325" y="485" text-anchor="middle" fill="#4a5568" font-size="18" font-weight="600" font-family="Poppins">Heimatic</text>
-    <text x="75" y="255" text-anchor="middle" fill="#4a5568" font-size="18" font-weight="600" font-family="Poppins">Dystopic</text>
-    <text x="595" y="255" text-anchor="middle" fill="#4a5568" font-size="18" font-weight="600" font-family="Poppins">Utopic</text>
-    
-    <!-- Quadrant labels - SHIFTED RIGHT -->
-    <text x="225" y="160" text-anchor="middle" fill="#991b1b" font-size="16" opacity="0.7" font-family="Poppins" font-weight="500">Vigil</text>
-    <text x="425" y="160" text-anchor="middle" fill="#065f46" font-size="16" opacity="0.7" font-family="Poppins" font-weight="500">Gardeners</text>
-    <text x="225" y="350" text-anchor="middle" fill="#92400e" font-size="16" opacity="0.7" font-family="Poppins" font-weight="500">Witnesses</text>
-    <text x="425" y="350" text-anchor="middle" fill="#1e40af" font-size="16" opacity="0.7" font-family="Poppins" font-weight="500">Current-Riders</text>
-    
-    <!-- User position marker - SHIFTED RIGHT -->
-    <circle id="userMarker" cx="325" cy="250" r="0" fill="#667eea" stroke="white" stroke-width="3"/>
-    <circle id="userMarkerPulse" cx="325" cy="250" r="0" fill="#667eea" opacity="0.3">
-        <animate attributeName="r" from="0" to="20" dur="1.5s" repeatCount="indefinite"/>
-        <animate attributeName="opacity" from="0.3" to="0" dur="1.5s" repeatCount="indefinite"/>
-    </circle>
-</svg>
+                    <svg id="diamondSvg" viewBox="-50 0 700 500" xmlns="http://www.w3.org/2000/svg">
+                        <!-- Diamond outline - SHIFTED RIGHT -->
+                        <polygon points="325,50 525,250 325,450 125,250" 
+                                fill="none" stroke="#cbd5e0" stroke-width="2"/>
+                        
+                        <!-- Quadrant fills with stronger colours - SHIFTED RIGHT -->
+                        <polygon points="325,50 525,250 325,250" 
+                                fill="#86efac" opacity="0.5"/>
+                        <polygon points="125,250 325,50 325,250" 
+                                fill="#fca5a5" opacity="0.5"/>
+                        <polygon points="125,250 325,250 325,450" 
+                                fill="#fde047" opacity="0.5"/>
+                        <polygon points="325,250 525,250 325,450" 
+                                fill="#93c5fd" opacity="0.5"/>
+                        
+                        <!-- Axis lines - SHIFTED RIGHT -->
+                        <line x1="125" y1="250" x2="525" y2="250" 
+                              stroke="#94a3b8" stroke-width="1" stroke-dasharray="5,5"/>
+                        <line x1="325" y1="50" x2="325" y2="450" 
+                              stroke="#94a3b8" stroke-width="1" stroke-dasharray="5,5"/>
+                        
+                        <!-- Main axis labels - SHIFTED RIGHT -->
+                        <text x="325" y="30" text-anchor="middle" fill="#4a5568" font-size="18" font-weight="600" font-family="Poppins">Kairotic</text>
+                        <text x="325" y="485" text-anchor="middle" fill="#4a5568" font-size="18" font-weight="600" font-family="Poppins">Heimatic</text>
+                        <text x="75" y="255" text-anchor="middle" fill="#4a5568" font-size="18" font-weight="600" font-family="Poppins">Dystopic</text>
+                        <text x="595" y="255" text-anchor="middle" fill="#4a5568" font-size="18" font-weight="600" font-family="Poppins">Utopic</text>
+                        
+                        <!-- Quadrant labels - UPDATED NAMES -->
+                        <text x="225" y="160" text-anchor="middle" fill="#991b1b" font-size="16" opacity="0.7" font-family="Poppins" font-weight="500">Sentinels</text>
+                        <text x="425" y="160" text-anchor="middle" fill="#065f46" font-size="16" opacity="0.7" font-family="Poppins" font-weight="500">Gardeners</text>
+                        <text x="225" y="350" text-anchor="middle" fill="#92400e" font-size="16" opacity="0.7" font-family="Poppins" font-weight="500">Witnesses</text>
+                        <text x="425" y="350" text-anchor="middle" fill="#1e40af" font-size="16" opacity="0.7" font-family="Poppins" font-weight="500">Believers</text>
+                        
+                        <!-- User position marker - SHIFTED RIGHT -->
+                        <circle id="userMarker" cx="325" cy="250" r="0" fill="#667eea" stroke="white" stroke-width="3"/>
+                        <circle id="userMarkerPulse" cx="325" cy="250" r="0" fill="#667eea" opacity="0.3">
+                            <animate attributeName="r" from="0" to="20" dur="1.5s" repeatCount="indefinite"/>
+                            <animate attributeName="opacity" from="0.3" to="0" dur="1.5s" repeatCount="indefinite"/>
+                        </circle>
+                    </svg>
                 </div>
 
                 <div class="coordinate-display" id="coordinateDisplay"></div>
@@ -872,7 +872,7 @@
 
             // Calculate scores with new formulas for 15 questions
             // Q14 needs reverse scoring for horizontal axis
-            const q14Reversed = 6 - responses.q14; // Reverse: 1->5, 2->4, 3->3, 4->2, 5->1
+            const q14Reversed = 6 - responses.q14;
             
             const horizontalScore = (responses.q1 + responses.q6 + responses.q7 + q14Reversed) - 
                                   (responses.q3 + responses.q5 + responses.q9 + responses.q13);
@@ -884,18 +884,18 @@
             const yScore = (verticalScore / 20).toFixed(2);
             const strength = Math.sqrt(xScore * xScore + yScore * yScore).toFixed(2);
 
-            // Determine quadrant
+            // Determine quadrant - UPDATED NAMES
             let quadrant;
             if (Math.abs(parseFloat(xScore)) < 0.15 && Math.abs(parseFloat(yScore)) < 0.15) {
                 quadrant = 'Centre (Mixed/Uncertain)';
             } else if (xScore > 0 && yScore > 0) {
                 quadrant = 'Utopic-Kairotic (Gardeners)';
             } else if (xScore < 0 && yScore > 0) {
-                quadrant = 'Dystopic-Kairotic (Vigil)';
+                quadrant = 'Dystopic-Kairotic (Sentinels)';
             } else if (xScore < 0 && yScore < 0) {
                 quadrant = 'Dystopic-Heimatic (Witnesses)';
             } else if (xScore > 0 && yScore < 0) {
-                quadrant = 'Utopic-Heimatic (Current-Riders)';
+                quadrant = 'Utopic-Heimatic (Believers)';
             } else {
                 quadrant = 'Centre (Mixed/Uncertain)';
             }
@@ -951,8 +951,8 @@
             form.style.display = 'none';
             resultsContainer.classList.add('show');
 
-            // Update diamond visualisation - adjusted for new viewBox
-            const centerX = 275;  // Updated from 250
+            // Update diamond visualisation - UPDATED CENTER for shifted diamond
+            const centerX = 325;
             const centerY = 250;
             const radius = 200;
 
@@ -1001,12 +1001,12 @@
                     <p><strong>Your Superpower:</strong> Holding optimism and caution simultaneously.</p>
                     ${parseFloat(strength) < 0.3 ? '<p><em>Note: Your position is close to the centre, suggesting you hold mixed views or are still forming your perspective.</em></p>' : ''}
                 `,
-                'Dystopic-Kairotic (Vigil)': `
-                    <h3>🔥 The Vigil</h3>
-                    <p><strong>Core Belief:</strong> We're heading for disaster, but we can still swerve.</p>
-                    <p>You see genuine catastrophic risks ahead, but you maintain that our choices still matter profoundly. Every safety measure, every regulation, every moment of deliberation could make the difference between catastrophe and survival. You're driven by urgency without despair—you refuse to accept that disaster is inevitable.</p>
-                    <p><strong>Your Motto:</strong> "We're running out of time, but there's still time."</p>
-                    <p><strong>Your Superpower:</strong> Maintaining agency in the face of existential risk.</p>
+                'Dystopic-Kairotic (Sentinels)': `
+                    <h3>🛡️ The Sentinels</h3>
+                    <p><strong>Core Belief:</strong> We're heading for disaster, but we can still prevent it.</p>
+                    <p>You see genuine catastrophic risks ahead, but you maintain that our choices still matter profoundly. You stand watch, alert to dangers others might miss. Every safety measure, every regulation, every moment of deliberation could make the difference between catastrophe and survival. You're driven by urgency without despair—you refuse to accept that disaster is inevitable.</p>
+                    <p><strong>Your Motto:</strong> "We're running out of time, but we can still act."</p>
+                    <p><strong>Your Superpower:</strong> Maintaining vigilance and agency in the face of existential risk.</p>
                     ${parseFloat(strength) < 0.3 ? '<p><em>Note: Your position is close to the centre, suggesting you hold mixed views or are still forming your perspective.</em></p>' : ''}
                 `,
                 'Dystopic-Heimatic (Witnesses)': `
@@ -1017,12 +1017,12 @@
                     <p><strong>Your Superpower:</strong> Clear-headed analysis of structural forces without wishful thinking.</p>
                     ${parseFloat(strength) < 0.3 ? '<p><em>Note: Your position is close to the centre, suggesting you hold mixed views or are still forming your perspective.</em></p>' : ''}
                 `,
-                'Utopic-Heimatic (Current-Riders)': `
-                    <h3>🚀 The Current-Riders</h3>
+                'Utopic-Heimatic (Believers)': `
+                    <h3>✨ The Believers</h3>
                     <p><strong>Core Belief:</strong> Good outcomes are inevitable—trust the process.</p>
-                    <p>You believe that the forces driving AI development—innovation, competition, the nature of intelligence—naturally favour beneficial outcomes. Intelligence tends towards cooperation and truth. Markets favour useful systems. Progress is self-correcting. Your role is to remove obstacles and let the benevolent tide carry humanity forwards.</p>
+                    <p>You believe that the forces driving AI development—innovation, competition, the nature of intelligence—naturally favour beneficial outcomes. Intelligence tends towards cooperation and truth. Markets favour useful systems. Progress is self-correcting. You have faith that the arc of technological development bends towards human flourishing.</p>
                     <p><strong>Your Motto:</strong> "Let's build—the future is bright."</p>
-                    <p><strong>Your Superpower:</strong> Unburdened by anxiety, able to move fast without second-guessing.</p>
+                    <p><strong>Your Superpower:</strong> Unburdened by anxiety, able to move fast with confidence.</p>
                     ${parseFloat(strength) < 0.3 ? '<p><em>Note: Your position is close to the centre, suggesting you hold mixed views or are still forming your perspective.</em></p>' : ''}
                 `,
                 'Centre (Mixed/Uncertain)': `
