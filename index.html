@@ -82,15 +82,14 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
-            gap: 10px;
-            flex-wrap: wrap;
+            gap: 15px;
         }
 
         .scale-label {
             font-size: 0.85em;
             color: #718096;
             font-weight: 500;
-            min-width: 100px;
+            min-width: 120px;
         }
 
         .scale-label.left {
@@ -105,6 +104,7 @@
             display: flex;
             gap: 20px;
             justify-content: center;
+            flex-shrink: 0;
         }
 
         .radio-option {
@@ -290,22 +290,125 @@
             font-weight: 500;
         }
 
+        /* Mobile-specific styles */
         @media (max-width: 768px) {
-            .scale-container {
-                flex-direction: column;
-            }
-            
-            .scale-label {
-                min-width: auto;
-                text-align: center !important;
+            body {
+                padding: 10px;
             }
 
-            .content {
-                padding: 20px;
+            .header {
+                padding: 30px 20px;
             }
 
             .header h1 {
                 font-size: 1.5em;
+            }
+
+            .header p {
+                font-size: 1em;
+            }
+
+            .content {
+                padding: 20px;
+                max-height: none;
+            }
+
+            .question-block {
+                padding: 20px;
+                margin-bottom: 30px;
+            }
+
+            .question-text {
+                font-size: 1em;
+            }
+
+            /* Mobile scale layout */
+            .scale-container {
+                flex-direction: column;
+                gap: 15px;
+                align-items: stretch;
+            }
+
+            .scale-label {
+                min-width: auto;
+                text-align: center !important;
+                padding: 8px;
+                background: #e2e8f0;
+                border-radius: 6px;
+                font-size: 0.9em;
+            }
+
+            .scale-label.left {
+                order: 1;
+            }
+
+            .radio-group {
+                order: 2;
+                gap: 15px;
+                padding: 15px 0;
+            }
+
+            .scale-label.right {
+                order: 3;
+            }
+
+            .radio-option input[type="radio"] {
+                width: 28px;
+                height: 28px;
+            }
+
+            .radio-option label {
+                font-size: 1em;
+                font-weight: 600;
+            }
+
+            .pointer-section p {
+                font-size: 1em;
+            }
+
+            .submit-btn {
+                padding: 14px 32px;
+                font-size: 1em;
+            }
+
+            .diamond-viz {
+                margin: 20px auto;
+            }
+
+            .result-text {
+                padding: 15px;
+            }
+
+            .result-text h3 {
+                font-size: 1.2em;
+            }
+        }
+
+        /* Extra small mobile devices */
+        @media (max-width: 480px) {
+            .radio-group {
+                gap: 10px;
+            }
+
+            .radio-option input[type="radio"] {
+                width: 26px;
+                height: 26px;
+            }
+
+            .radio-option label {
+                font-size: 0.95em;
+            }
+        }
+
+        /* Tablet landscape and up */
+        @media (min-width: 769px) and (max-width: 1024px) {
+            .scale-label {
+                min-width: 100px;
+                font-size: 0.8em;
+            }
+
+            .radio-group {
+                gap: 15px;
             }
         }
     </style>
@@ -913,7 +1016,7 @@
     </div>
 
     <script>
-        // Your Google Apps Script Web App URL - UPDATED
+        // Your Google Apps Script Web App URL
         const GOOGLE_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbyvQaae32HuxG8eE9mKj87XkbDQFsOkl-0-q1a1UeElf7NHQIj5X61NPkwjOL1XLdT8zQ/exec';
 
         const form = document.getElementById('surveyForm');
