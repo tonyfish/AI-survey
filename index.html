@@ -971,6 +971,14 @@
 
     <script>
         // ============================================
+        // UTILITY FUNCTIONS
+        // ============================================
+
+        function generateUserId() {
+            return 'user_' + Date.now() + '_' + Math.random().toString(36).substr(2, 9);
+        }
+
+        // ============================================
         // V1 DATA INTEGRATION
         // ============================================
         
@@ -1264,6 +1272,46 @@
 
             // Check for V1 data
             const v1Data = getV1Data();
+
+            // Prepare data for Apps Script
+            const submissionData = {
+                assessment_type: 'v2',
+                user_id: v1Data ? v1Data.user_id : generateUserId(),
+                email: document.getElementById('email').value || null,
+                came_from_v1: v1Data ? true : false,
+                v1_outcomes: v1Data ? parseFloat(v1Data.outcomes) : null,
+                v1_agency: v1Data ? parseFloat(v1Data.agency) : null,
+                v1_quadrant: v1Data ? v1Data.quadrant : null,
+                q1_coordination: parseInt(document.querySelector('input[name="q1"]:checked').value),
+                q2_coordination: parseInt(document.querySelector('input[name="q2"]:checked').value),
+                q3_coordination: parseInt(document.querySelector('input[name="q3"]:checked').value),
+                q4_coordination: parseInt(document.querySelector('input[name="q4"]:checked').value),
+                q5_system: parseInt(document.querySelector('input[name="q5"]:checked').value),
+                q6_system: parseInt(document.querySelector('input[name="q6"]:checked').value),
+                q7_system: parseInt(document.querySelector('input[name="q7"]:checked').value),
+                q8_system: parseInt(document.querySelector('input[name="q8"]:checked').value),
+                q9_stewardship: parseInt(document.querySelector('input[name="q9"]:checked').value),
+                q10_stewardship: parseInt(document.querySelector('input[name="q10"]:checked').value),
+                q11_stewardship: parseInt(document.querySelector('input[name="q11"]:checked').value),
+                q12_stewardship: parseInt(document.querySelector('input[name="q12"]:checked').value)
+            };
+
+            // Send to Google Apps Script
+            fetch('https://script.google.com/macros/s/AKfycbyvQaae32HuxG8eE9mKj87XkbDQFsOkl-0-q1a1UeElf7NHQIj5X61NPkwjOL1XLdT8zQ/exec', {
+                method: 'POST',
+                mode: 'no-cors',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify(submissionData)
+            })
+            .then(() => {
+                console.log('V2 data submitted successfully');
+            })
+            .catch(error => {
+                console.error('Error submitting V2 data:', error);
+                // Continue showing results even if submission fails
+            });
 
             // Update score displays
             document.getElementById('coord-score').style.width = (coordination * 20) + '%';
