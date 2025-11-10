@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>AI Governance Hexagon - V2 Assessment</title>
+    <title>AI Governance Assessment - Complete Journey</title>
     <style>
         * {
             margin: 0;
@@ -48,9 +48,12 @@
             font-weight: 300;
         }
 
-        .intro-section {
+        .section {
             padding: 40px;
-            border-bottom: 2px solid #e2e8f0;
+        }
+
+        .section.hidden {
+            display: none;
         }
 
         .intro-section h2 {
@@ -64,117 +67,6 @@
             color: #4a5568;
             font-size: 1.05em;
             line-height: 1.7;
-        }
-
-        .v1-context-banner {
-            display: none;
-            background: #e6f7ff;
-            padding: 20px;
-            border-radius: 10px;
-            margin-bottom: 20px;
-            border-left: 4px solid #1890ff;
-        }
-
-        .v1-context-banner p {
-            color: #0050b3;
-            margin: 0;
-            line-height: 1.6;
-        }
-
-        .v1-bridge {
-            padding: 40px;
-            background: #fef5e7;
-            border-left: 5px solid #f39c12;
-            margin: 40px;
-            border-radius: 10px;
-        }
-
-        .v1-bridge h3 {
-            color: #d68910;
-            margin-bottom: 15px;
-            font-size: 1.5em;
-        }
-
-        .v1-bridge p {
-            color: #5d4e37;
-            margin-bottom: 12px;
-            line-height: 1.7;
-        }
-
-        .v1-bridge ul {
-            margin: 15px 0 15px 25px;
-            color: #5d4e37;
-        }
-
-        .v1-bridge li {
-            margin-bottom: 8px;
-            line-height: 1.6;
-        }
-
-        .content {
-            padding: 40px;
-        }
-
-        .axis-explanation {
-            margin-bottom: 40px;
-            padding: 25px;
-            background: #f7fafc;
-            border-radius: 10px;
-            border-left: 4px solid #667eea;
-        }
-
-        .axis-explanation h3 {
-            color: #667eea;
-            margin-bottom: 15px;
-            font-size: 1.4em;
-        }
-
-        .axis-explanation p {
-            color: #4a5568;
-            margin-bottom: 10px;
-            line-height: 1.7;
-        }
-
-        .instruction-box {
-            margin: 40px 0;
-            padding: 30px;
-            background: linear-gradient(135deg, #fff5f5 0%, #ffe5e5 100%);
-            border-radius: 12px;
-            border-left: 5px solid #e53e3e;
-        }
-
-        .instruction-box h3 {
-            color: #c53030;
-            margin-bottom: 15px;
-            font-size: 1.4em;
-        }
-
-        .instruction-box p {
-            color: #742a2a;
-            margin-bottom: 12px;
-            line-height: 1.7;
-        }
-
-        .instruction-box .emphasis {
-            background: white;
-            padding: 15px;
-            border-radius: 8px;
-            margin: 15px 0;
-            border-left: 3px solid #fc8181;
-        }
-
-        .instruction-box .emphasis strong {
-            color: #c53030;
-        }
-
-        .instruction-box ul {
-            margin: 15px 0 15px 25px;
-            color: #742a2a;
-        }
-
-        .instruction-box li {
-            margin-bottom: 10px;
-            line-height: 1.6;
         }
 
         .question-block {
@@ -192,17 +84,6 @@
             margin-bottom: 10px;
             text-transform: uppercase;
             letter-spacing: 1px;
-        }
-
-        .axis-indicator {
-            display: inline-block;
-            padding: 4px 12px;
-            background: #667eea;
-            color: white;
-            border-radius: 20px;
-            font-size: 0.75em;
-            margin-left: 10px;
-            font-weight: 600;
         }
 
         .question-text {
@@ -318,7 +199,6 @@
         }
 
         .results {
-            display: none;
             padding: 40px;
             background: #f7fafc;
         }
@@ -330,7 +210,7 @@
             text-align: center;
         }
 
-        .result-worldview {
+        .result-box {
             padding: 30px;
             background: white;
             border-radius: 12px;
@@ -339,58 +219,132 @@
             box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
         }
 
-        .result-worldview h3 {
+        .result-box h3 {
             color: #2d3748;
             margin-bottom: 15px;
             font-size: 1.6em;
         }
 
-        .result-worldview h4 {
-            color: #667eea;
-            margin: 20px 0 12px 0;
-            font-size: 1.2em;
-        }
-
-        .result-worldview p {
+        .result-box p {
             color: #4a5568;
             margin-bottom: 12px;
             line-height: 1.7;
         }
 
-        .v1-journey-box {
-            background: #f7fafc;
-            padding: 20px;
-            border-radius: 10px;
-            margin: 20px 0;
-            border-left: 4px solid #4299e1;
+        .v2-transition {
+            margin: 40px 0;
+            padding: 40px;
+            background: linear-gradient(135deg, #fef5e7 0%, #fdebd0 100%);
+            border-radius: 15px;
+            border: 3px solid #f39c12;
         }
 
-        .v1-journey-box h4 {
-            color: #2b6cb0;
-            margin-bottom: 12px;
-            font-size: 1.2em;
+        .v2-transition h3 {
+            color: #d68910;
+            margin-bottom: 20px;
+            font-size: 1.8em;
+            text-align: center;
         }
 
-        .v1-connection {
-            background: white;
-            padding: 15px;
-            border-radius: 8px;
+        .v2-transition p {
+            color: #5d4e37;
+            margin-bottom: 15px;
             line-height: 1.7;
-            margin-top: 10px;
+            text-align: center;
         }
 
-        .v2-adds-box {
-            background: #fffaf0;
-            padding: 20px;
-            border-radius: 10px;
+        .v2-transition ul {
             margin: 20px 0;
-            border-left: 4px solid #ed8936;
+            padding-left: 30px;
+            color: #5d4e37;
         }
 
-        .v2-adds-box h4 {
-            color: #c05621;
+        .v2-transition li {
+            margin-bottom: 10px;
+            line-height: 1.6;
+        }
+
+        .v2-transition .continue-button {
+            display: block;
+            width: 100%;
+            max-width: 400px;
+            margin: 30px auto 0;
+            padding: 20px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            text-align: center;
+            border: none;
+            border-radius: 50px;
+            font-size: 1.3em;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+        }
+
+        .v2-transition .continue-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
+        }
+
+        .diamond-viz {
+            margin: 30px auto;
+            max-width: 500px;
+        }
+
+        .diamond-canvas, .hexagon-canvas {
+            width: 100%;
+            height: 400px;
+        }
+
+        .axis-explanation {
+            margin-bottom: 40px;
+            padding: 25px;
+            background: #f7fafc;
+            border-radius: 10px;
+            border-left: 4px solid #667eea;
+        }
+
+        .axis-explanation h3 {
+            color: #667eea;
+            margin-bottom: 15px;
+            font-size: 1.4em;
+        }
+
+        .axis-explanation p {
+            color: #4a5568;
+            margin-bottom: 10px;
+            line-height: 1.7;
+        }
+
+        .instruction-box {
+            margin: 40px 0;
+            padding: 30px;
+            background: linear-gradient(135deg, #fff5f5 0%, #ffe5e5 100%);
+            border-radius: 12px;
+            border-left: 5px solid #e53e3e;
+        }
+
+        .instruction-box h3 {
+            color: #c53030;
+            margin-bottom: 15px;
+            font-size: 1.4em;
+        }
+
+        .instruction-box p {
+            color: #742a2a;
             margin-bottom: 12px;
-            font-size: 1.2em;
+            line-height: 1.7;
+        }
+
+        .instruction-box ul {
+            margin: 15px 0 15px 25px;
+            color: #742a2a;
+        }
+
+        .instruction-box li {
+            margin-bottom: 10px;
+            line-height: 1.6;
         }
 
         .score-breakdown {
@@ -413,36 +367,18 @@
             font-size: 1.1em;
         }
 
-        .score-bar {
-            width: 100%;
-            height: 8px;
-            background: #e2e8f0;
-            border-radius: 4px;
-            overflow: hidden;
-            margin-bottom: 8px;
+        .v1-journey-box {
+            background: #f7fafc;
+            padding: 20px;
+            border-radius: 10px;
+            margin: 20px 0;
+            border-left: 4px solid #4299e1;
         }
 
-        .score-fill {
-            height: 100%;
-            background: linear-gradient(90deg, #667eea 0%, #764ba2 100%);
-            border-radius: 4px;
-            transition: width 0.5s ease;
-        }
-
-        .score-text {
-            font-size: 0.9em;
-            color: #718096;
-        }
-
-        .hexagon-viz {
-            margin: 40px auto;
-            max-width: 500px;
-            position: relative;
-        }
-
-        .hexagon-canvas {
-            width: 100%;
-            height: 500px;
+        .v1-journey-box h4 {
+            color: #2b6cb0;
+            margin-bottom: 12px;
+            font-size: 1.2em;
         }
 
         @media (max-width: 768px) {
@@ -459,11 +395,7 @@
                 min-width: 100%;
             }
 
-            .content {
-                padding: 20px;
-            }
-
-            .results {
+            .section {
                 padding: 20px;
             }
         }
@@ -472,933 +404,1025 @@
 <body>
     <div class="container">
         <div class="header">
-            <h1>AI Governance Hexagon</h1>
-            <div class="subtitle">V2: System-Level Complexity Assessment</div>
+            <h1>AI Governance Assessment</h1>
+            <div class="subtitle">Complete Journey: V1 Diamond → V2 Hexagon</div>
         </div>
 
-        <div class="intro-section">
-            <h2>Beyond Simple Paradigms</h2>
-            <div id="v1-context-intro" class="v1-context-banner">
-                <p>
-                    <strong>📍 Continuing from V1:</strong> You've mapped your position on the Diamond. Now V2 will reveal your theory of the system—your V1 results will inform your analysis.
-                </p>
+        <!-- ==================== V1 SECTION ==================== -->
+        <div id="v1-section" class="section">
+            <div class="intro-section">
+                <h2>Part 1: The Diamond Framework</h2>
+                <p>This first assessment maps your position on two fundamental axes: how you view <strong>outcomes</strong> (dystopian to utopian) and how you view <strong>agency</strong> (inevitable to controllable).</p>
+                <p>Answer 8 questions to discover your quadrant on the AI Governance Diamond.</p>
             </div>
-            <p>The Diamond framework (V1) helped you understand where you sit on the spectrum between inevitability and agency, between dystopia and utopia. But AI governance isn't a simple two-dimensional problem.</p>
-            
-            <p>This V2 assessment probes deeper: How do you reason about <strong>feedback loops between governance and markets</strong>? Do you see AI as <strong>monolithic or fragmented</strong> across multiple layers? Where is <strong>coordination capacity actually heading</strong>—maturing or collapsing?</p>
-            
-            <p>These questions reveal not just your position, but your <strong>theory of the system</strong>—how you think about complexity, coordination, and change.</p>
+
+            <form id="v1-form">
+                <!-- V1 Questions - 8 questions for Diamond framework -->
+                <!-- You'll need to customize these based on your actual V1 questions -->
+                
+                <div class="question-block">
+                    <div class="question-number">Question 1</div>
+                    <div class="question-text">How do you view the likely outcomes of AI development?</div>
+                    <div class="scale-container">
+                        <div class="scale-label left">Highly dystopian - major risks and harms</div>
+                        <div class="radio-group">
+                            <div class="radio-option">
+                                <input type="radio" name="v1q1" value="1" id="v1q1-1" required>
+                                <label for="v1q1-1">1</label>
+                            </div>
+                            <div class="radio-option">
+                                <input type="radio" name="v1q1" value="2" id="v1q1-2">
+                                <label for="v1q1-2">2</label>
+                            </div>
+                            <div class="radio-option">
+                                <input type="radio" name="v1q1" value="3" id="v1q1-3">
+                                <label for="v1q1-3">3</label>
+                            </div>
+                            <div class="radio-option">
+                                <input type="radio" name="v1q1" value="4" id="v1q1-4">
+                                <label for="v1q1-4">4</label>
+                            </div>
+                            <div class="radio-option">
+                                <input type="radio" name="v1q1" value="5" id="v1q1-5">
+                                <label for="v1q1-5">5</label>
+                            </div>
+                        </div>
+                        <div class="scale-label right">Highly utopian - transformative benefits</div>
+                    </div>
+                </div>
+
+                <div class="question-block">
+                    <div class="question-number">Question 2</div>
+                    <div class="question-text">How much impact will AI safety research have on outcomes?</div>
+                    <div class="scale-container">
+                        <div class="scale-label left">Negative outcomes likely regardless of research</div>
+                        <div class="radio-group">
+                            <div class="radio-option">
+                                <input type="radio" name="v1q2" value="1" id="v1q2-1" required>
+                                <label for="v1q2-1">1</label>
+                            </div>
+                            <div class="radio-option">
+                                <input type="radio" name="v1q2" value="2" id="v1q2-2">
+                                <label for="v1q2-2">2</label>
+                            </div>
+                            <div class="radio-option">
+                                <input type="radio" name="v1q2" value="3" id="v1q2-3">
+                                <label for="v1q2-3">3</label>
+                            </div>
+                            <div class="radio-option">
+                                <input type="radio" name="v1q2" value="4" id="v1q2-4">
+                                <label for="v1q2-4">4</label>
+                            </div>
+                            <div class="radio-option">
+                                <input type="radio" name="v1q2" value="5" id="v1q2-5">
+                                <label for="v1q2-5">5</label>
+                            </div>
+                        </div>
+                        <div class="scale-label right">Research will ensure positive outcomes</div>
+                    </div>
+                </div>
+
+                <div class="question-block">
+                    <div class="question-number">Question 3</div>
+                    <div class="question-text">What's your view on AI's impact on employment?</div>
+                    <div class="scale-container">
+                        <div class="scale-label left">Catastrophic job losses and disruption</div>
+                        <div class="radio-group">
+                            <div class="radio-option">
+                                <input type="radio" name="v1q3" value="1" id="v1q3-1" required>
+                                <label for="v1q3-1">1</label>
+                            </div>
+                            <div class="radio-option">
+                                <input type="radio" name="v1q3" value="2" id="v1q3-2">
+                                <label for="v1q3-2">2</label>
+                            </div>
+                            <div class="radio-option">
+                                <input type="radio" name="v1q3" value="3" id="v1q3-3">
+                                <label for="v1q3-3">3</label>
+                            </div>
+                            <div class="radio-option">
+                                <input type="radio" name="v1q3" value="4" id="v1q3-4">
+                                <label for="v1q3-4">4</label>
+                            </div>
+                            <div class="radio-option">
+                                <input type="radio" name="v1q3" value="5" id="v1q3-5">
+                                <label for="v1q3-5">5</label>
+                            </div>
+                        </div>
+                        <div class="scale-label right">New opportunities and enhanced productivity</div>
+                    </div>
+                </div>
+
+                <div class="question-block">
+                    <div class="question-number">Question 4</div>
+                    <div class="question-text">How do you view AI's impact on human wellbeing?</div>
+                    <div class="scale-container">
+                        <div class="scale-label left">Net negative - more harm than good</div>
+                        <div class="radio-group">
+                            <div class="radio-option">
+                                <input type="radio" name="v1q4" value="1" id="v1q4-1" required>
+                                <label for="v1q4-1">1</label>
+                            </div>
+                            <div class="radio-option">
+                                <input type="radio" name="v1q4" value="2" id="v1q4-2">
+                                <label for="v1q4-2">2</label>
+                            </div>
+                            <div class="radio-option">
+                                <input type="radio" name="v1q4" value="3" id="v1q4-3">
+                                <label for="v1q4-3">3</label>
+                            </div>
+                            <div class="radio-option">
+                                <input type="radio" name="v1q4" value="4" id="v1q4-4">
+                                <label for="v1q4-4">4</label>
+                            </div>
+                            <div class="radio-option">
+                                <input type="radio" name="v1q4" value="5" id="v1q4-5">
+                                <label for="v1q4-5">5</label>
+                            </div>
+                        </div>
+                        <div class="scale-label right">Net positive - transformative benefits</div>
+                    </div>
+                </div>
+
+                <div class="question-block">
+                    <div class="question-number">Question 5</div>
+                    <div class="question-text">How much can human decisions shape AI's trajectory?</div>
+                    <div class="scale-container">
+                        <div class="scale-label left">Trajectory is largely predetermined by technology</div>
+                        <div class="radio-group">
+                            <div class="radio-option">
+                                <input type="radio" name="v1q5" value="1" id="v1q5-1" required>
+                                <label for="v1q5-1">1</label>
+                            </div>
+                            <div class="radio-option">
+                                <input type="radio" name="v1q5" value="2" id="v1q5-2">
+                                <label for="v1q5-2">2</label>
+                            </div>
+                            <div class="radio-option">
+                                <input type="radio" name="v1q5" value="3" id="v1q5-3">
+                                <label for="v1q5-3">3</label>
+                            </div>
+                            <div class="radio-option">
+                                <input type="radio" name="v1q5" value="4" id="v1q5-4">
+                                <label for="v1q5-4">4</label>
+                            </div>
+                            <div class="radio-option">
+                                <input type="radio" name="v1q5" value="5" id="v1q5-5">
+                                <label for="v1q5-5">5</label>
+                            </div>
+                        </div>
+                        <div class="scale-label right">We have significant control through choices</div>
+                    </div>
+                </div>
+
+                <div class="question-block">
+                    <div class="question-number">Question 6</div>
+                    <div class="question-text">Can governance frameworks meaningfully affect AI outcomes?</div>
+                    <div class="scale-container">
+                        <div class="scale-label left">Governance will have minimal impact</div>
+                        <div class="radio-group">
+                            <div class="radio-option">
+                                <input type="radio" name="v1q6" value="1" id="v1q6-1" required>
+                                <label for="v1q6-1">1</label>
+                            </div>
+                            <div class="radio-option">
+                                <input type="radio" name="v1q6" value="2" id="v1q6-2">
+                                <label for="v1q6-2">2</label>
+                            </div>
+                            <div class="radio-option">
+                                <input type="radio" name="v1q6" value="3" id="v1q6-3">
+                                <label for="v1q6-3">3</label>
+                            </div>
+                            <div class="radio-option">
+                                <input type="radio" name="v1q6" value="4" id="v1q6-4">
+                                <label for="v1q6-4">4</label>
+                            </div>
+                            <div class="radio-option">
+                                <input type="radio" name="v1q6" value="5" id="v1q6-5">
+                                <label for="v1q6-5">5</label>
+                            </div>
+                        </div>
+                        <div class="scale-label right">Governance can significantly shape outcomes</div>
+                    </div>
+                </div>
+
+                <div class="question-block">
+                    <div class="question-number">Question 7</div>
+                    <div class="question-text">How much agency do we have in preventing AI risks?</div>
+                    <div class="scale-container">
+                        <div class="scale-label left">Risks are largely outside our control</div>
+                        <div class="radio-group">
+                            <div class="radio-option">
+                                <input type="radio" name="v1q7" value="1" id="v1q7-1" required>
+                                <label for="v1q7-1">1</label>
+                            </div>
+                            <div class="radio-option">
+                                <input type="radio" name="v1q7" value="2" id="v1q7-2">
+                                <label for="v1q7-2">2</label>
+                            </div>
+                            <div class="radio-option">
+                                <input type="radio" name="v1q7" value="3" id="v1q7-3">
+                                <label for="v1q7-3">3</label>
+                            </div>
+                            <div class="radio-option">
+                                <input type="radio" name="v1q7" value="4" id="v1q7-4">
+                                <label for="v1q7-4">4</label>
+                            </div>
+                            <div class="radio-option">
+                                <input type="radio" name="v1q7" value="5" id="v1q7-5">
+                                <label for="v1q7-5">5</label>
+                            </div>
+                        </div>
+                        <div class="scale-label right">We can actively prevent major risks</div>
+                    </div>
+                </div>
+
+                <div class="question-block">
+                    <div class="question-number">Question 8</div>
+                    <div class="question-text">To what extent can coordination change AI's trajectory?</div>
+                    <div class="scale-container">
+                        <div class="scale-label left">Coordination will fail; trajectory is fixed</div>
+                        <div class="radio-group">
+                            <div class="radio-option">
+                                <input type="radio" name="v1q8" value="1" id="v1q8-1" required>
+                                <label for="v1q8-1">1</label>
+                            </div>
+                            <div class="radio-option">
+                                <input type="radio" name="v1q8" value="2" id="v1q8-2">
+                                <label for="v1q8-2">2</label>
+                            </div>
+                            <div class="radio-option">
+                                <input type="radio" name="v1q8" value="3" id="v1q8-3">
+                                <label for="v1q8-3">3</label>
+                            </div>
+                            <div class="radio-option">
+                                <input type="radio" name="v1q8" value="4" id="v1q8-4">
+                                <label for="v1q8-4">4</label>
+                            </div>
+                            <div class="radio-option">
+                                <input type="radio" name="v1q8" value="5" id="v1q8-5">
+                                <label for="v1q8-5">5</label>
+                            </div>
+                        </div>
+                        <div class="scale-label right">Coordination can fundamentally alter trajectory</div>
+                    </div>
+                </div>
+
+                <div class="email-section">
+                    <label for="v1-email">Email (optional - to receive your results):</label>
+                    <input type="email" id="v1-email" name="email" placeholder="your.email@example.com">
+                </div>
+
+                <button type="submit" class="submit-button">Complete V1 Assessment</button>
+            </form>
         </div>
 
-        <div class="v1-bridge">
-            <h3>You Completed V1—Now Go Deeper</h3>
-            <p>The Diamond showed you where you stand on control and outcomes. But it treated several complex dynamics as simple binaries:</p>
-            <ul>
-                <li><strong>AI as monolithic</strong> when it's actually fragmenting across organizational, infrastructural, and model layers</li>
-                <li><strong>Governance vs. markets</strong> when they actually interact through dynamic feedback loops</li>
-                <li><strong>Agency as static</strong> when coordination capacity is actually on a trajectory—maturing or collapsing</li>
-                <li><strong>Missing the moral psychology layer</strong>—who stewards judgment when autonomy scales?</li>
-            </ul>
-            <p>V2 introduces three new axes that capture this complexity: <strong>Coordination Trajectory</strong>, <strong>System Coherence</strong>, and <strong>Stewardship Distribution</strong>. Together, they create six worldviews that better represent how sophisticated thinkers actually reason about AI governance.</p>
-            <p><strong>Ready to map your system-level thinking?</strong></p>
+        <!-- ==================== V1 RESULTS ==================== -->
+        <div id="v1-results" class="section hidden">
+            <div class="results">
+                <h2>Your V1 Position: The Diamond</h2>
+                
+                <div class="diamond-viz">
+                    <canvas id="diamond-canvas" class="diamond-canvas"></canvas>
+                </div>
+
+                <div id="v1-result-box" class="result-box">
+                    <!-- V1 results will be inserted here -->
+                </div>
+
+                <!-- V2 Transition Section -->
+                <div class="v2-transition">
+                    <h3>🎯 You've Mapped Your Position—Now Go Deeper</h3>
+                    <p>You now understand where you stand on the Diamond. But there's a deeper layer to explore.</p>
+                    
+                    <p><strong>What V1 Doesn't Capture:</strong></p>
+                    <ul>
+                        <li><strong>AI as monolithic:</strong> Treats "AI" as one thing, missing organizational, infrastructural, and frontier layers evolving independently</li>
+                        <li><strong>Governance vs. markets:</strong> Frames them as opposing when they're actually in dynamic feedback loops</li>
+                        <li><strong>Static agency:</strong> Asks "can we coordinate?" but not "is coordination capacity maturing or collapsing?"</li>
+                        <li><strong>Missing stewardship:</strong> Who holds judgment when AI makes millions of decisions at scale?</li>
+                    </ul>
+
+                    <p><strong>V2 introduces three new axes:</strong> Coordination Trajectory, System Coherence, and Stewardship Distribution. Together, they create six worldviews that better represent how sophisticated thinkers actually reason about AI governance.</p>
+
+                    <button class="continue-button" onclick="showV2Section()">Continue to V2 Assessment →</button>
+                </div>
+            </div>
         </div>
 
-        <div class="content">
+        <!-- ==================== V2 SECTION ==================== -->
+        <div id="v2-section" class="section hidden">
+            <div class="intro-section">
+                <h2>Part 2: The Hexagon Framework</h2>
+                <p>V2 probes deeper: How do you reason about <strong>coordination trajectories</strong>, <strong>system fragmentation</strong>, and <strong>stewardship at scale</strong>?</p>
+            </div>
+
             <div class="axis-explanation">
                 <h3>🔄 Axis 1: Coordination Trajectory</h3>
                 <p><strong>Coordination Maturity → Coordination Collapse</strong></p>
-                <p>Is our capacity to coordinate around AI improving or degrading? Are institutions evolving to handle complexity, or are race dynamics and misaligned incentives overwhelming governance attempts? This axis captures the <em>direction of travel</em>, not just current state.</p>
+                <p>Is our capacity to coordinate around AI improving or degrading? This axis captures the <em>direction of travel</em>, not just current state.</p>
             </div>
 
             <div class="axis-explanation">
                 <h3>🧩 Axis 2: System Coherence</h3>
                 <p><strong>Monolithic Understanding → Fragmented Understanding</strong></p>
-                <p>Do you see "AI" as a unified phenomenon with a single trajectory, or as multiple layers (organizational AI, infrastructure, frontier models, agentic systems) evolving independently under different incentives? This axis reveals your mental model of the problem space.</p>
+                <p>Do you see "AI" as a unified phenomenon or as multiple layers evolving independently under different incentives?</p>
             </div>
 
             <div class="axis-explanation">
                 <h3>⚖️ Axis 3: Stewardship Distribution</h3>
                 <p><strong>Concentrated Control → Distributed Stewardship</strong></p>
-                <p>Who should hold judgment when AI systems make millions of decisions? Should governance be centralized through expert oversight and regulatory authority, or distributed through multi-stakeholder mechanisms and network coordination? This axis captures your theory of accountability at scale.</p>
+                <p>Who should hold judgment when AI systems make millions of decisions?</p>
             </div>
 
             <div class="instruction-box">
                 <h3>⚠️ How to Answer These Questions</h3>
-                <p>Before you begin, understand this crucial distinction: <strong>Should you answer based on what you observe, or what you aspire to?</strong></p>
-                
-                <div class="emphasis">
-                    <strong>We recommend: Answer descriptively—based on what you actually observe happening.</strong>
-                </div>
-
-                <p><strong>Why descriptive observation matters:</strong></p>
+                <p><strong>Answer descriptively—based on what you actually observe happening.</strong></p>
                 <ul>
-                    <li><strong>Strategy follows observation:</strong> If you observe coordination collapsing, you'll focus on emergency mechanisms or resilience. If you observe it maturing, you'll accelerate institutional evolution. Same goal, different actions.</li>
-                    
-                    <li><strong>The worldviews represent different theories of reality:</strong> A Systems Architect genuinely observes coordination maturing. A Complexity Pessimist genuinely observes it collapsing. They might share aspirations but have fundamentally different understandings of what's happening.</li>
-                    
-                    <li><strong>The gap between observation and aspiration is meaningful:</strong> Someone who observes coordination collapsing but keeps building coordination mechanisms anyway reveals something important about their strategic thinking.</li>
+                    <li><strong>Axes 1 & 2:</strong> Descriptive—What patterns do you observe?</li>
+                    <li><strong>Axis 3:</strong> Normative—What's your theory of legitimate governance?</li>
                 </ul>
-
-                <p><strong>Question Types:</strong></p>
-                <ul>
-                    <li><strong>Axes 1 & 2 (Coordination & System Coherence):</strong> Descriptive—What patterns do you observe? What's your empirical assessment?</li>
-                    
-                    <li><strong>Axis 3 (Stewardship):</strong> Normative—What's your theory of legitimate governance, regardless of what you observe happening?</li>
-                </ul>
-
-                <p>The Hexagon maps your <strong>theory of reality</strong>, not just your hopes. That's what makes it strategically useful.</p>
             </div>
 
-            <form id="assessment-form">
-                <!-- Coordination Trajectory Questions -->
+            <form id="v2-form">
+                <!-- V2 Coordination Questions -->
                 <div class="question-block">
-                    <div class="question-number">Question 1 <span class="axis-indicator">Coordination</span></div>
+                    <div class="question-number">Question 1 - Coordination</div>
                     <div class="question-text">When you observe the relationship between AI governance attempts and market forces over the past 3 years, what pattern do you see?</div>
                     <div class="scale-container">
-                        <div class="scale-label left">Governance and markets are developing productive feedback loops; institutions are learning</div>
+                        <div class="scale-label left">Governance and markets developing productive feedback loops</div>
                         <div class="radio-group">
                             <div class="radio-option">
-                                <input type="radio" name="q1" value="5" id="q1-5" required>
-                                <label for="q1-5">Strongly</label>
+                                <input type="radio" name="v2q1" value="5" id="v2q1-5" required>
+                                <label for="v2q1-5">5</label>
                             </div>
                             <div class="radio-option">
-                                <input type="radio" name="q1" value="4" id="q1-4">
-                                <label for="q1-4">Somewhat</label>
+                                <input type="radio" name="v2q1" value="4" id="v2q1-4">
+                                <label for="v2q1-4">4</label>
                             </div>
                             <div class="radio-option">
-                                <input type="radio" name="q1" value="3" id="q1-3">
-                                <label for="q1-3">Neutral</label>
+                                <input type="radio" name="v2q1" value="3" id="v2q1-3">
+                                <label for="v2q1-3">3</label>
                             </div>
                             <div class="radio-option">
-                                <input type="radio" name="q1" value="2" id="q1-2">
-                                <label for="q1-2">Somewhat</label>
+                                <input type="radio" name="v2q1" value="2" id="v2q1-2">
+                                <label for="v2q1-2">2</label>
                             </div>
                             <div class="radio-option">
-                                <input type="radio" name="q1" value="1" id="q1-1">
-                                <label for="q1-1">Strongly</label>
+                                <input type="radio" name="v2q1" value="1" id="v2q1-1">
+                                <label for="v2q1-1">1</label>
                             </div>
                         </div>
-                        <div class="scale-label right">Race dynamics are overwhelming coordination; governance creates perverse incentives</div>
+                        <div class="scale-label right">Race dynamics overwhelming coordination</div>
                     </div>
                 </div>
 
                 <div class="question-block">
-                    <div class="question-number">Question 2 <span class="axis-indicator">Coordination</span></div>
-                    <div class="question-text">Regarding trust mechanisms in AI development (safety commitments, voluntary frameworks, industry standards), do you observe:</div>
+                    <div class="question-number">Question 2 - Coordination</div>
+                    <div class="question-text">Regarding trust mechanisms in AI development, do you observe:</div>
                     <div class="scale-container">
-                        <div class="scale-label left">Trust infrastructure building; accountability mechanisms maturing; credible commitments emerging</div>
+                        <div class="scale-label left">Trust infrastructure building; accountability maturing</div>
                         <div class="radio-group">
                             <div class="radio-option">
-                                <input type="radio" name="q2" value="5" id="q2-5" required>
-                                <label for="q2-5">Strongly</label>
+                                <input type="radio" name="v2q2" value="5" id="v2q2-5" required>
+                                <label for="v2q2-5">5</label>
                             </div>
                             <div class="radio-option">
-                                <input type="radio" name="q2" value="4" id="q2-4">
-                                <label for="q2-4">Somewhat</label>
+                                <input type="radio" name="v2q2" value="4" id="v2q2-4">
+                                <label for="v2q2-4">4</label>
                             </div>
                             <div class="radio-option">
-                                <input type="radio" name="q2" value="3" id="q2-3">
-                                <label for="q2-3">Neutral</label>
+                                <input type="radio" name="v2q2" value="3" id="v2q2-3">
+                                <label for="v2q2-3">3</label>
                             </div>
                             <div class="radio-option">
-                                <input type="radio" name="q2" value="2" id="q2-2">
-                                <label for="q2-2">Somewhat</label>
+                                <input type="radio" name="v2q2" value="2" id="v2q2-2">
+                                <label for="v2q2-2">2</label>
                             </div>
                             <div class="radio-option">
-                                <input type="radio" name="q2" value="1" id="q2-1">
-                                <label for="q2-1">Strongly</label>
+                                <input type="radio" name="v2q2" value="1" id="v2q2-1">
+                                <label for="v2q2-1">1</label>
                             </div>
                         </div>
-                        <div class="scale-label right">Trust degrading; commitments proving hollow; accountability theater replacing substance</div>
+                        <div class="scale-label right">Trust degrading; accountability theater</div>
                     </div>
                 </div>
 
                 <div class="question-block">
-                    <div class="question-number">Question 3 <span class="axis-indicator">Coordination</span></div>
+                    <div class="question-number">Question 3 - Coordination</div>
                     <div class="question-text">Looking at incentive alignment between AI developers, users, and affected communities:</div>
                     <div class="scale-container">
-                        <div class="scale-label left">Incentives increasingly aligning through better mechanisms; multi-stakeholder interests converging</div>
+                        <div class="scale-label left">Incentives increasingly aligning</div>
                         <div class="radio-group">
                             <div class="radio-option">
-                                <input type="radio" name="q3" value="5" id="q3-5" required>
-                                <label for="q3-5">Strongly</label>
+                                <input type="radio" name="v2q3" value="5" id="v2q3-5" required>
+                                <label for="v2q3-5">5</label>
                             </div>
                             <div class="radio-option">
-                                <input type="radio" name="q3" value="4" id="q3-4">
-                                <label for="q3-4">Somewhat</label>
+                                <input type="radio" name="v2q3" value="4" id="v2q3-4">
+                                <label for="v2q3-4">4</label>
                             </div>
                             <div class="radio-option">
-                                <input type="radio" name="q3" value="3" id="q3-3">
-                                <label for="q3-3">Neutral</label>
+                                <input type="radio" name="v2q3" value="3" id="v2q3-3">
+                                <label for="v2q3-3">3</label>
                             </div>
                             <div class="radio-option">
-                                <input type="radio" name="q3" value="2" id="q3-2">
-                                <label for="q3-2">Somewhat</label>
+                                <input type="radio" name="v2q3" value="2" id="v2q3-2">
+                                <label for="v2q3-2">2</label>
                             </div>
                             <div class="radio-option">
-                                <input type="radio" name="q3" value="1" id="q3-1">
-                                <label for="q3-1">Strongly</label>
+                                <input type="radio" name="v2q3" value="1" id="v2q3-1">
+                                <label for="v2q3-1">1</label>
                             </div>
                         </div>
-                        <div class="scale-label right">Incentive misalignment worsening; developer and societal interests diverging further</div>
+                        <div class="scale-label right">Incentive misalignment worsening</div>
                     </div>
                 </div>
 
                 <div class="question-block">
-                    <div class="question-number">Question 4 <span class="axis-indicator">Coordination</span></div>
-                    <div class="question-text">Considering the gap between the speed of AI development and the speed of institutional response:</div>
+                    <div class="question-number">Question 4 - Coordination</div>
+                    <div class="question-text">Gap between speed of AI development and institutional response:</div>
                     <div class="scale-container">
-                        <div class="scale-label left">Gap narrowing as institutions adapt faster; governance becoming more agile</div>
+                        <div class="scale-label left">Gap narrowing; governance becoming agile</div>
                         <div class="radio-group">
                             <div class="radio-option">
-                                <input type="radio" name="q4" value="5" id="q4-5" required>
-                                <label for="q4-5">Strongly</label>
+                                <input type="radio" name="v2q4" value="5" id="v2q4-5" required>
+                                <label for="v2q4-5">5</label>
                             </div>
                             <div class="radio-option">
-                                <input type="radio" name="q4" value="4" id="q4-4">
-                                <label for="q4-4">Somewhat</label>
+                                <input type="radio" name="v2q4" value="4" id="v2q4-4">
+                                <label for="v2q4-4">4</label>
                             </div>
                             <div class="radio-option">
-                                <input type="radio" name="q4" value="3" id="q4-3">
-                                <label for="q4-3">Neutral</label>
+                                <input type="radio" name="v2q4" value="3" id="v2q4-3">
+                                <label for="v2q4-3">3</label>
                             </div>
                             <div class="radio-option">
-                                <input type="radio" name="q4" value="2" id="q4-2">
-                                <label for="q4-2">Somewhat</label>
+                                <input type="radio" name="v2q4" value="2" id="v2q4-2">
+                                <label for="v2q4-2">2</label>
                             </div>
                             <div class="radio-option">
-                                <input type="radio" name="q4" value="1" id="q4-1">
-                                <label for="q4-1">Strongly</label>
+                                <input type="radio" name="v2q4" value="1" id="v2q4-1">
+                                <label for="v2q4-1">1</label>
                             </div>
                         </div>
-                        <div class="scale-label right">Gap accelerating; institutions falling further behind; coordination costs rising</div>
+                        <div class="scale-label right">Gap accelerating; institutions falling behind</div>
                     </div>
                 </div>
 
-                <!-- System Coherence Questions -->
+                <!-- V2 System Questions -->
                 <div class="question-block">
-                    <div class="question-number">Question 5 <span class="axis-indicator">System Coherence</span></div>
-                    <div class="question-text">When someone says "AI development," what mental picture actually forms for you based on what you observe in the field?</div>
+                    <div class="question-number">Question 5 - System</div>
+                    <div class="question-text">When someone says "AI development," what mental picture forms based on what you observe?</div>
                     <div class="scale-container">
-                        <div class="scale-label left">Primarily frontier model capabilities; the "race to AGI"; cutting-edge labs pushing boundaries</div>
+                        <div class="scale-label left">Primarily frontier model capabilities; race to AGI</div>
                         <div class="radio-group">
                             <div class="radio-option">
-                                <input type="radio" name="q5" value="1" id="q5-1" required>
-                                <label for="q5-1">Strongly</label>
+                                <input type="radio" name="v2q5" value="1" id="v2q5-1" required>
+                                <label for="v2q5-1">1</label>
                             </div>
                             <div class="radio-option">
-                                <input type="radio" name="q5" value="2" id="q5-2">
-                                <label for="q5-2">Somewhat</label>
+                                <input type="radio" name="v2q5" value="2" id="v2q5-2">
+                                <label for="v2q5-2">2</label>
                             </div>
                             <div class="radio-option">
-                                <input type="radio" name="q5" value="3" id="q5-3">
-                                <label for="q5-3">Both Equally</label>
+                                <input type="radio" name="v2q5" value="3" id="v2q5-3">
+                                <label for="v2q5-3">3</label>
                             </div>
                             <div class="radio-option">
-                                <input type="radio" name="q5" value="4" id="q5-4">
-                                <label for="q5-4">Somewhat</label>
+                                <input type="radio" name="v2q5" value="4" id="v2q5-4">
+                                <label for="v2q5-4">4</label>
                             </div>
                             <div class="radio-option">
-                                <input type="radio" name="q5" value="5" id="q5-5">
-                                <label for="q5-5">Strongly</label>
+                                <input type="radio" name="v2q5" value="5" id="v2q5-5">
+                                <label for="v2q5-5">5</label>
                             </div>
                         </div>
-                        <div class="scale-label right">Multiple distinct layers: organizational AI, infrastructure, agentic systems, AND frontier models—each with different dynamics</div>
-                    </div>
-                </div>
-
-                <div class="question-block">
-                    <div class="question-number">Question 6 <span class="axis-indicator">System Coherence</span></div>
-                    <div class="question-text">Based on what you observe, where are the most consequential AI decisions for society actually being made right now?</div>
-                    <div class="scale-container">
-                        <div class="scale-label left">In frontier labs—model capabilities determine everything downstream</div>
-                        <div class="radio-group">
-                            <div class="radio-option">
-                                <input type="radio" name="q6" value="1" id="q6-1" required>
-                                <label for="q6-1">Strongly</label>
-                            </div>
-                            <div class="radio-option">
-                                <input type="radio" name="q6" value="2" id="q6-2">
-                                <label for="q6-2">Somewhat</label>
-                            </div>
-                            <div class="radio-option">
-                                <input type="radio" name="q6" value="3" id="q6-3">
-                                <label for="q6-3">Neutral</label>
-                            </div>
-                            <div class="radio-option">
-                                <input type="radio" name="q6" value="4" id="q6-4">
-                                <label for="q6-4">Somewhat</label>
-                            </div>
-                            <div class="radio-option">
-                                <input type="radio" name="q6" value="5" id="q6-5">
-                                <label for="q6-5">Strongly</label>
-                            </div>
-                        </div>
-                        <div class="scale-label right">In organizational integration and architectural choices about how AI gets embedded in systems</div>
+                        <div class="scale-label right">Multiple layers: organizational, infrastructure, frontier</div>
                     </div>
                 </div>
 
                 <div class="question-block">
-                    <div class="question-number">Question 7 <span class="axis-indicator">System Coherence</span></div>
-                    <div class="question-text">Should AI governance frameworks differ significantly based on the type of AI system?</div>
+                    <div class="question-number">Question 6 - System</div>
+                    <div class="question-text">Where are the most consequential AI decisions actually being made?</div>
                     <div class="scale-container">
-                        <div class="scale-label left">No—we need unified frameworks; "AI is AI" regardless of application</div>
+                        <div class="scale-label left">In frontier labs; capabilities determine everything</div>
                         <div class="radio-group">
                             <div class="radio-option">
-                                <input type="radio" name="q7" value="1" id="q7-1" required>
-                                <label for="q7-1">Strongly</label>
+                                <input type="radio" name="v2q6" value="1" id="v2q6-1" required>
+                                <label for="v2q6-1">1</label>
                             </div>
                             <div class="radio-option">
-                                <input type="radio" name="q7" value="2" id="q7-2">
-                                <label for="q7-2">Somewhat</label>
+                                <input type="radio" name="v2q6" value="2" id="v2q6-2">
+                                <label for="v2q6-2">2</label>
                             </div>
                             <div class="radio-option">
-                                <input type="radio" name="q7" value="3" id="q7-3">
-                                <label for="q7-3">Neutral</label>
+                                <input type="radio" name="v2q6" value="3" id="v2q6-3">
+                                <label for="v2q6-3">3</label>
                             </div>
                             <div class="radio-option">
-                                <input type="radio" name="q7" value="4" id="q7-4">
-                                <label for="q7-4">Somewhat</label>
+                                <input type="radio" name="v2q6" value="4" id="v2q6-4">
+                                <label for="v2q6-4">4</label>
                             </div>
                             <div class="radio-option">
-                                <input type="radio" name="q7" value="5" id="q7-5">
-                                <label for="q7-5">Strongly</label>
+                                <input type="radio" name="v2q6" value="5" id="v2q6-5">
+                                <label for="v2q6-5">5</label>
                             </div>
                         </div>
-                        <div class="scale-label right">Yes—organizational AI, infrastructure, and frontier models need completely different governance approaches</div>
+                        <div class="scale-label right">In organizational integration and architecture</div>
                     </div>
                 </div>
 
                 <div class="question-block">
-                    <div class="question-number">Question 8 <span class="axis-indicator">System Coherence</span></div>
-                    <div class="question-text">When thinking about AI risk, which frame resonates more?</div>
+                    <div class="question-number">Question 7 - System</div>
+                    <div class="question-text">Should AI governance frameworks differ by AI type?</div>
                     <div class="scale-container">
-                        <div class="scale-label left">Single catastrophic outcome from advanced AI capabilities</div>
+                        <div class="scale-label left">No; need unified frameworks</div>
                         <div class="radio-group">
                             <div class="radio-option">
-                                <input type="radio" name="q8" value="1" id="q8-1" required>
-                                <label for="q8-1">Strongly</label>
+                                <input type="radio" name="v2q7" value="1" id="v2q7-1" required>
+                                <label for="v2q7-1">1</label>
                             </div>
                             <div class="radio-option">
-                                <input type="radio" name="q8" value="2" id="q8-2">
-                                <label for="q8-2">Somewhat</label>
+                                <input type="radio" name="v2q7" value="2" id="v2q7-2">
+                                <label for="v2q7-2">2</label>
                             </div>
                             <div class="radio-option">
-                                <input type="radio" name="q8" value="3" id="q8-3">
-                                <label for="q8-3">Both</label>
+                                <input type="radio" name="v2q7" value="3" id="v2q7-3">
+                                <label for="v2q7-3">3</label>
                             </div>
                             <div class="radio-option">
-                                <input type="radio" name="q8" value="4" id="q8-4">
-                                <label for="q8-4">Somewhat</label>
+                                <input type="radio" name="v2q7" value="4" id="v2q7-4">
+                                <label for="v2q7-4">4</label>
                             </div>
                             <div class="radio-option">
-                                <input type="radio" name="q8" value="5" id="q8-5">
-                                <label for="q8-5">Strongly</label>
+                                <input type="radio" name="v2q7" value="5" id="v2q7-5">
+                                <label for="v2q7-5">5</label>
                             </div>
                         </div>
-                        <div class="scale-label right">Emergent risks from interaction of multiple AI layers no one is fully tracking</div>
-                    </div>
-                </div>
-
-                <!-- Stewardship Distribution Questions -->
-                <div class="question-block">
-                    <div class="question-number">Question 9 <span class="axis-indicator">Stewardship</span></div>
-                    <div class="question-text">In your view, who SHOULD hold ultimate decision-making authority over high-stakes AI deployment? (This is asking for your normative theory, not what you observe happening.)</div>
-                    <div class="scale-container">
-                        <div class="scale-label left">Expert bodies with technical oversight; centralized regulatory authority</div>
-                        <div class="radio-group">
-                            <div class="radio-option">
-                                <input type="radio" name="q9" value="1" id="q9-1" required>
-                                <label for="q9-1">Strongly</label>
-                            </div>
-                            <div class="radio-option">
-                                <input type="radio" name="q9" value="2" id="q9-2">
-                                <label for="q9-2">Somewhat</label>
-                            </div>
-                            <div class="radio-option">
-                                <input type="radio" name="q9" value="3" id="q9-3">
-                                <label for="q9-3">Neutral</label>
-                            </div>
-                            <div class="radio-option">
-                                <input type="radio" name="q9" value="4" id="q9-4">
-                                <label for="q9-4">Somewhat</label>
-                            </div>
-                            <div class="radio-option">
-                                <input type="radio" name="q9" value="5" id="q9-5">
-                                <label for="q9-5">Strongly</label>
-                            </div>
-                        </div>
-                        <div class="scale-label right">Multi-stakeholder networks including affected communities; distributed oversight mechanisms</div>
+                        <div class="scale-label right">Yes; completely different approaches needed</div>
                     </div>
                 </div>
 
                 <div class="question-block">
-                    <div class="question-number">Question 10 <span class="axis-indicator">Stewardship</span></div>
-                    <div class="question-text">For accountability when AI systems cause harm, which model do you believe SHOULD be used? (Your theory of legitimate accountability, not current practice.)</div>
+                    <div class="question-number">Question 8 - System</div>
+                    <div class="question-text">When thinking about AI risk, which frame resonates?</div>
                     <div class="scale-container">
-                        <div class="scale-label left">Clear chains of responsibility to specific decision-makers; identifiable parties to sanction</div>
+                        <div class="scale-label left">Single catastrophic outcome from advanced AI</div>
                         <div class="radio-group">
                             <div class="radio-option">
-                                <input type="radio" name="q10" value="1" id="q10-1" required>
-                                <label for="q10-1">Strongly</label>
+                                <input type="radio" name="v2q8" value="1" id="v2q8-1" required>
+                                <label for="v2q8-1">1</label>
                             </div>
                             <div class="radio-option">
-                                <input type="radio" name="q10" value="2" id="q10-2">
-                                <label for="q10-2">Somewhat</label>
+                                <input type="radio" name="v2q8" value="2" id="v2q8-2">
+                                <label for="v2q8-2">2</label>
                             </div>
                             <div class="radio-option">
-                                <input type="radio" name="q10" value="3" id="q10-3">
-                                <label for="q10-3">Neutral</label>
+                                <input type="radio" name="v2q8" value="3" id="v2q8-3">
+                                <label for="v2q8-3">3</label>
                             </div>
                             <div class="radio-option">
-                                <input type="radio" name="q10" value="4" id="q10-4">
-                                <label for="q10-4">Somewhat</label>
+                                <input type="radio" name="v2q8" value="4" id="v2q8-4">
+                                <label for="v2q8-4">4</label>
                             </div>
                             <div class="radio-option">
-                                <input type="radio" name="q10" value="5" id="q10-5">
-                                <label for="q10-5">Strongly</label>
+                                <input type="radio" name="v2q8" value="5" id="v2q8-5">
+                                <label for="v2q8-5">5</label>
                             </div>
                         </div>
-                        <div class="scale-label right">Distributed accountability through transparency; system-level consequences rather than individual blame</div>
+                        <div class="scale-label right">Emergent risks from multiple AI layers</div>
+                    </div>
+                </div>
+
+                <!-- V2 Stewardship Questions -->
+                <div class="question-block">
+                    <div class="question-number">Question 9 - Stewardship</div>
+                    <div class="question-text">Who SHOULD hold ultimate decision-making authority over high-stakes AI?</div>
+                    <div class="scale-container">
+                        <div class="scale-label left">Expert bodies; centralized regulatory authority</div>
+                        <div class="radio-group">
+                            <div class="radio-option">
+                                <input type="radio" name="v2q9" value="1" id="v2q9-1" required>
+                                <label for="v2q9-1">1</label>
+                            </div>
+                            <div class="radio-option">
+                                <input type="radio" name="v2q9" value="2" id="v2q9-2">
+                                <label for="v2q9-2">2</label>
+                            </div>
+                            <div class="radio-option">
+                                <input type="radio" name="v2q9" value="3" id="v2q9-3">
+                                <label for="v2q9-3">3</label>
+                            </div>
+                            <div class="radio-option">
+                                <input type="radio" name="v2q9" value="4" id="v2q9-4">
+                                <label for="v2q9-4">4</label>
+                            </div>
+                            <div class="radio-option">
+                                <input type="radio" name="v2q9" value="5" id="v2q9-5">
+                                <label for="v2q9-5">5</label>
+                            </div>
+                        </div>
+                        <div class="scale-label right">Multi-stakeholder; distributed oversight</div>
                     </div>
                 </div>
 
                 <div class="question-block">
-                    <div class="question-number">Question 11 <span class="axis-indicator">Stewardship</span></div>
-                    <div class="question-text">In your view, how SHOULD safety standards for AI systems be established? (Your normative position on legitimate standard-setting.)</div>
+                    <div class="question-number">Question 10 - Stewardship</div>
+                    <div class="question-text">For accountability when AI systems cause harm, which model SHOULD be used?</div>
                     <div class="scale-container">
-                        <div class="scale-label left">Should be set by expert panels and enforced by regulatory bodies</div>
+                        <div class="scale-label left">Clear chains to specific decision-makers</div>
                         <div class="radio-group">
                             <div class="radio-option">
-                                <input type="radio" name="q11" value="1" id="q11-1" required>
-                                <label for="q11-1">Strongly</label>
+                                <input type="radio" name="v2q10" value="1" id="v2q10-1" required>
+                                <label for="v2q10-1">1</label>
                             </div>
                             <div class="radio-option">
-                                <input type="radio" name="q11" value="2" id="q11-2">
-                                <label for="q11-2">Somewhat</label>
+                                <input type="radio" name="v2q10" value="2" id="v2q10-2">
+                                <label for="v2q10-2">2</label>
                             </div>
                             <div class="radio-option">
-                                <input type="radio" name="q11" value="3" id="q11-3">
-                                <label for="q11-3">Neutral</label>
+                                <input type="radio" name="v2q10" value="3" id="v2q10-3">
+                                <label for="v2q10-3">3</label>
                             </div>
                             <div class="radio-option">
-                                <input type="radio" name="q11" value="4" id="q11-4">
-                                <label for="q11-4">Somewhat</label>
+                                <input type="radio" name="v2q10" value="4" id="v2q10-4">
+                                <label for="v2q10-4">4</label>
                             </div>
                             <div class="radio-option">
-                                <input type="radio" name="q11" value="5" id="q11-5">
-                                <label for="q11-5">Strongly</label>
+                                <input type="radio" name="v2q10" value="5" id="v2q10-5">
+                                <label for="v2q10-5">5</label>
                             </div>
                         </div>
-                        <div class="scale-label right">Should emerge through multi-stakeholder dialogue and be enforced through market/social mechanisms</div>
+                        <div class="scale-label right">Distributed accountability through transparency</div>
                     </div>
                 </div>
 
                 <div class="question-block">
-                    <div class="question-number">Question 12 <span class="axis-indicator">Stewardship</span></div>
-                    <div class="question-text">When AI systems make millions of micro-decisions (content moderation, loan approvals, hiring filters), who SHOULD steward the judgment? (Your theory of legitimate oversight at scale.)</div>
+                    <div class="question-number">Question 11 - Stewardship</div>
+                    <div class="question-text">How SHOULD safety standards for AI systems be established?</div>
                     <div class="scale-container">
-                        <div class="scale-label left">Centralized oversight bodies reviewing algorithmic decisions; concentrated authority</div>
+                        <div class="scale-label left">Set by expert panels; enforced by regulators</div>
                         <div class="radio-group">
                             <div class="radio-option">
-                                <input type="radio" name="q12" value="1" id="q12-1" required>
-                                <label for="q12-1">Strongly</label>
+                                <input type="radio" name="v2q11" value="1" id="v2q11-1" required>
+                                <label for="v2q11-1">1</label>
                             </div>
                             <div class="radio-option">
-                                <input type="radio" name="q12" value="2" id="q12-2">
-                                <label for="q12-2">Somewhat</label>
+                                <input type="radio" name="v2q11" value="2" id="v2q11-2">
+                                <label for="v2q11-2">2</label>
                             </div>
                             <div class="radio-option">
-                                <input type="radio" name="q12" value="3" id="q12-3">
-                                <label for="q12-3">Neutral</label>
+                                <input type="radio" name="v2q11" value="3" id="v2q11-3">
+                                <label for="v2q11-3">3</label>
                             </div>
                             <div class="radio-option">
-                                <input type="radio" name="q12" value="4" id="q12-4">
-                                <label for="q12-4">Somewhat</label>
+                                <input type="radio" name="v2q11" value="4" id="v2q11-4">
+                                <label for="v2q11-4">4</label>
                             </div>
                             <div class="radio-option">
-                                <input type="radio" name="q12" value="5" id="q12-5">
-                                <label for="q12-5">Strongly</label>
+                                <input type="radio" name="v2q11" value="5" id="v2q11-5">
+                                <label for="v2q11-5">5</label>
                             </div>
                         </div>
-                        <div class="scale-label right">Distributed judgment through transparency, appeal mechanisms, and affected communities; networked accountability</div>
+                        <div class="scale-label right">Emerge through multi-stakeholder dialogue</div>
                     </div>
                 </div>
 
-                <div class="email-section">
-                    <label for="email">Email (optional - to receive your detailed results and future insights):</label>
-                    <input type="email" id="email" name="email" placeholder="your.email@example.com">
+                <div class="question-block">
+                    <div class="question-number">Question 12 - Stewardship</div>
+                    <div class="question-text">When AI makes millions of micro-decisions, who SHOULD steward judgment?</div>
+                    <div class="scale-container">
+                        <div class="scale-label left">Centralized oversight bodies</div>
+                        <div class="radio-group">
+                            <div class="radio-option">
+                                <input type="radio" name="v2q12" value="1" id="v2q12-1" required>
+                                <label for="v2q12-1">1</label>
+                            </div>
+                            <div class="radio-option">
+                                <input type="radio" name="v2q12" value="2" id="v2q12-2">
+                                <label for="v2q12-2">2</label>
+                            </div>
+                            <div class="radio-option">
+                                <input type="radio" name="v2q12" value="3" id="v2q12-3">
+                                <label for="v2q12-3">3</label>
+                            </div>
+                            <div class="radio-option">
+                                <input type="radio" name="v2q12" value="4" id="v2q12-4">
+                                <label for="v2q12-4">4</label>
+                            </div>
+                            <div class="radio-option">
+                                <input type="radio" name="v2q12" value="5" id="v2q12-5">
+                                <label for="v2q12-5">5</label>
+                            </div>
+                        </div>
+                        <div class="scale-label right">Distributed judgment; networked accountability</div>
+                    </div>
                 </div>
 
-                <button type="submit" class="submit-button">Reveal My System-Level Worldview</button>
+                <button type="submit" class="submit-button">Complete V2 Assessment</button>
             </form>
+        </div>
 
-            <div id="results" class="results">
-                <h2>Your AI Governance Hexagon Profile</h2>
-                
-                <div class="hexagon-viz">
-                    <canvas id="hexagon-canvas" class="hexagon-canvas"></canvas>
+        <!-- ==================== V2 RESULTS ==================== -->
+        <div id="v2-results" class="section hidden">
+            <div class="results">
+                <h2>Your Complete Journey: V1 → V2</h2>
+
+                <div id="v2-result-box" class="result-box">
+                    <!-- V2 results with V1 journey will be inserted here -->
                 </div>
-
-                <div class="score-breakdown">
-                    <div class="score-item">
-                        <h4>Coordination Trajectory</h4>
-                        <div class="score-bar">
-                            <div class="score-fill" id="coord-score"></div>
-                        </div>
-                        <div class="score-text" id="coord-text"></div>
-                    </div>
-                    <div class="score-item">
-                        <h4>System Coherence</h4>
-                        <div class="score-bar">
-                            <div class="score-fill" id="system-score"></div>
-                        </div>
-                        <div class="score-text" id="system-text"></div>
-                    </div>
-                    <div class="score-item">
-                        <h4>Stewardship Distribution</h4>
-                        <div class="score-bar">
-                            <div class="score-fill" id="steward-score"></div>
-                        </div>
-                        <div class="score-text" id="steward-text"></div>
-                    </div>
-                </div>
-
-                <div id="worldview-result" class="result-worldview"></div>
             </div>
         </div>
     </div>
 
     <script>
-        // ============================================
-        // UTILITY FUNCTIONS
-        // ============================================
+        // ==================== GLOBAL STATE ====================
+        let v1Data = null;
+        const APPS_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbyvQaae32HuxG8eE9mKj87XkbDQFsOkl-0-q1a1UeElf7NHQIj5X61NPkwjOL1XLdT8zQ/exec';
 
+        // ==================== UTILITY FUNCTIONS ====================
         function generateUserId() {
             return 'user_' + Date.now() + '_' + Math.random().toString(36).substr(2, 9);
         }
 
-        // ============================================
-        // V1 DATA INTEGRATION
-        // ============================================
-        
-        // Parse V1 data from URL parameters if present
-        function getV1Data() {
-            const urlParams = new URLSearchParams(window.location.search);
-            if (urlParams.has('v1_outcomes')) {
-                return {
-                    outcomes: parseFloat(urlParams.get('v1_outcomes')),
-                    agency: parseFloat(urlParams.get('v1_agency')),
-                    quadrant: urlParams.get('v1_quadrant')
-                };
-            }
-            return null;
+        function showSection(sectionId) {
+            document.querySelectorAll('.section').forEach(section => {
+                section.classList.add('hidden');
+            });
+            document.getElementById(sectionId).classList.remove('hidden');
+            document.getElementById(sectionId).scrollIntoView({ behavior: 'smooth', block: 'start' });
         }
 
-        function getQuadrantName(quadrant) {
-            const names = {
-                'sentinel': 'The Sentinel',
-                'gardener': 'The Gardener', 
-                'believer': 'The Believer',
-                'witness': 'The Witness'
-            };
-            return names[quadrant] || quadrant;
+        function showV2Section() {
+            showSection('v2-section');
         }
 
-        function getV1V2Connection(v1Data, v2Worldview) {
-            // Map V1 quadrants to likely V2 worldviews and explain connections
-            const connections = {
-                'sentinel': {
-                    'systems-architect': 'Your V1 Sentinel position (high agency, dystopian concern) aligns with your V2 Systems Architect view—you see risks but believe coordination can mature through better design.',
-                    'technocrat': 'Your V1 Sentinel position naturally extends to Technocrat in V2—you see catastrophic risk and believe expert-driven concentrated control can address it.',
-                    'complexity-pessimist': 'Your V1 Sentinel alarm about outcomes intensifies in V2 as Complexity Pessimist—you see the fragmentation and coordination collapse making the risks even harder to manage.',
-                    'institutional-pragmatist': 'Interesting evolution: Your V1 Sentinel concern about outcomes combines with optimism about institutional capacity in V2.',
-                    'market-evolutionist': 'Tension between V1 and V2: You were a Sentinel (worried about outcomes) but now embrace market evolution—perhaps you\'ve concluded coordination attempts make things worse?',
-                    'fatalist-observer': 'Your journey from V1 Sentinel to V2 Fatalist reflects a shift from "we must act" to "we cannot effectively act"—you still see the risks but lost faith in our capacity to coordinate.'
-                },
-                'gardener': {
-                    'systems-architect': 'Perfect alignment: Your V1 Gardener position (high agency, optimistic) becomes Systems Architect in V2—you see coordination maturing through sophisticated design.',
-                    'technocrat': 'Your V1 Gardener belief in tending toward good outcomes combines with Technocrat confidence in expert governance in V2.',
-                    'institutional-pragmatist': 'Natural progression: Your V1 Gardener faith in cultivation extends to Institutional Pragmatist belief in existing frameworks adapting well.',
-                    'complexity-pessimist': 'Interesting shift: Your V1 Gardener optimism about agency now confronts fragmentation and coordination collapse in V2.',
-                    'market-evolutionist': 'Your V1 Gardener position evolves into Market Evolutionist—you believe in good outcomes but through distributed market selection rather than planned coordination.',
-                    'fatalist-observer': 'Dramatic shift: From V1 Gardener (agency works) to V2 Fatalist (coordination failing)—what changed your assessment?'
-                },
-                'believer': {
-                    'market-evolutionist': 'Strong alignment: Your V1 Believer position (low agency, utopian) naturally becomes Market Evolutionist—trust in beneficial forces operating beyond central control.',
-                    'institutional-pragmatist': 'Your V1 Believer optimism about outcomes combines with belief that institutions can guide things well in V2.',
-                    'fatalist-observer': 'Consistent worldview: V1 Believer faith in beneficial trajectories becomes V2 Fatalist acceptance—things will work out (or not) beyond our steering.',
-                    'systems-architect': 'Tension: Your V1 Believer position (low agency) contrasts with Systems Architect belief in coordination maturity—perhaps you see it maturing naturally?',
-                    'technocrat': 'Evolution: Your V1 Believer optimism now channels through Technocrat confidence in expert governance.',
-                    'complexity-pessimist': 'Sharp contrast: V1 Believer optimism meets V2 pessimism about coordination—you see good outcomes but through acceptance rather than action?'
-                },
-                'witness': {
-                    'fatalist-observer': 'Deep consistency: Your V1 Witness position (low agency, dystopian) naturally extends to V2 Fatalist Observer—coordination failing, outcomes concerning, observation over action.',
-                    'complexity-pessimist': 'Your V1 Witness alarm intensifies in V2: You see coordination collapsing across fragmented AI layers, but unlike pure Fatalist, you still see value in concentrated control attempts.',
-                    'market-evolutionist': 'Interesting combination: V1 Witness pessimism about outcomes meets V2 market faith—you see bad trajectories but trust distributed selection over failed coordination?',
-                    'institutional-pragmatist': 'Tension: Your V1 Witness fatalism (low agency, dystopian) contrasts with Institutional Pragmatist optimism about existing frameworks.',
-                    'systems-architect': 'Major shift: From V1 Witness (low agency, dystopian) to V2 Systems Architect (coordination maturing)—what changed your assessment of our coordination capacity?',
-                    'technocrat': 'Contrast: Your V1 Witness fatalism now meets Technocrat belief in expert control—perhaps you see need for concentrated governance even if you doubt its success?'
-                }
-            };
-
-            return connections[v1Data.quadrant]?.[v2Worldview] || 
-                `Your V1 ${getQuadrantName(v1Data.quadrant)} position provides context for your V2 ${worldviews[v2Worldview].name} worldview.`;
-        }
-
-        // ============================================
-        // V2 WORLDVIEW DEFINITIONS
-        // ============================================
-
-        const worldviews = {
-            'systems-architect': {
-                name: 'The Systems Architect',
-                profile: '[Coordination Maturity + Fragmented Understanding + Distributed Stewardship]',
-                description: 'You see AI governance as a multi-layered coordination challenge requiring sophisticated institutional design. You recognize that AI is fragmenting across organizational, infrastructural, and model layers—each needing different governance approaches. You believe coordination capacity can improve through better incentive design, multi-stakeholder frameworks, and architectural choices that internalize externalities.',
-                focus: 'Your strategic priorities center on incentive alignment, transparency mechanisms that enable distributed accountability, and governance systems that evolve as fast as the technology. You recognize that most real impact happens in organizational integration work, not frontier labs.',
-                blindspot: 'You may overestimate how quickly new coordination mechanisms can develop and scale. The institutions you envision require trust, resources, and time—which may not arrive before critical decisions are made.',
-                allies: 'Institutional Pragmatists (share belief in coordination improvement), Technocrats (share focus on governance design)'
+        // ==================== V1 WORLDVIEW DEFINITIONS ====================
+        const v1Quadrants = {
+            'gardener': {
+                name: 'The Gardener',
+                description: 'You believe outcomes will be positive AND that human agency can shape AI\'s trajectory. You see AI development as a garden that needs tending—with the right care and cultivation, beneficial outcomes will emerge.'
             },
-            'technocrat': {
-                name: 'The Technocrat',
-                profile: '[Coordination Maturity + Monolithic Understanding + Concentrated Control]',
-                description: 'You believe expert governance can manage AI development if properly resourced and empowered. You see AI primarily through the lens of frontier capabilities—the "race to AGI"—and believe clear technical standards and safety benchmarks can be established and enforced through centralized oversight.',
-                focus: 'You prioritize technical safety standards, expert advisory panels, coordinated government action, international treaties, and licensing frameworks. You believe regulatory capacity can keep pace with development if institutions are strengthened.',
-                blindspot: 'You may underestimate how fragmented AI development has become—organizational AI, infrastructural systems, and agentic architectures evolving outside frontier lab dynamics. Centralized oversight designed for model development may miss where most societal impact occurs.',
-                allies: 'Systems Architects (share belief in coordination potential), Complexity Pessimists (share preference for concentrated control)'
+            'sentinel': {
+                name: 'The Sentinel',
+                description: 'You\'re concerned about outcomes BUT believe human agency can make a difference. You see real risks ahead but think vigilant action and governance can prevent catastrophic outcomes.'
             },
-            'market-evolutionist': {
-                name: 'The Market Evolutionist',
-                profile: '[Coordination Collapse + Monolithic Understanding + Distributed Stewardship]',
-                description: 'You see traditional governance failing to keep pace with AI development and believe market forces provide better selection mechanisms than central planning. You view AI as a unified transformative force, but trust competitive pressure and distributed experimentation more than regulatory frameworks.',
-                focus: 'You emphasize liability and tort law over preemptive regulation, market-based safety incentives, consumer choice, and competitive dynamics as selection pressure. You believe the market moves faster and more intelligently than regulators.',
-                blindspot: 'You may underweight coordination problems that markets don\'t naturally solve—public goods, existential risks, externalities at scale. Race dynamics can create destructive outcomes even as they drive innovation.',
-                allies: 'Fatalist Observers (share embrace of distributed approaches), Institutional Pragmatists (share preference for bottom-up mechanisms)'
+            'believer': {
+                name: 'The Believer',
+                description: 'You expect positive outcomes but see the trajectory as largely predetermined. You trust that beneficial forces will guide AI development, with or without active human intervention.'
             },
-            'complexity-pessimist': {
-                name: 'The Complexity Pessimist',
-                profile: '[Coordination Collapse + Fragmented Understanding + Concentrated Control]',
-                description: 'You recognize AI is fragmenting across multiple layers creating ungovernable complexity, and you observe coordination deteriorating as race dynamics intensify. You believe centralized intervention is necessary but increasingly difficult to implement effectively.',
-                focus: 'You prioritize emergency governance mechanisms, ability to pause or slow development, establishing red lines with enforcement capacity, and preventing catastrophic outcomes even if it stifles innovation. You acknowledge we might lack the capacity to govern effectively.',
-                blindspot: 'You may miss windows where intervention could still work. Pessimism about coordination can become self-fulfilling if capable actors disengage from governance attempts.',
-                allies: 'Technocrats (share preference for concentrated control), Fatalist Observers (share observation of coordination collapse)'
-            },
-            'institutional-pragmatist': {
-                name: 'The Institutional Pragmatist',
-                profile: '[Coordination Maturity + Monolithic Understanding + Distributed Stewardship]',
-                description: 'You see AI as governable through established institutional frameworks adapted for new challenges. You believe coordination improves through international cooperation, multi-stakeholder processes, and norm development—applying proven governance models to AI.',
-                focus: 'You emphasize international standards bodies, public-private partnerships, gradual regulatory evolution, soft law and norm development, and existing institutions adapting their frameworks. You see the challenge as significant but manageable.',
-                blindspot: 'You may underestimate how different AI is from past technologies—both in speed of development and in how fragmented the technology has become. Institutional processes designed for unified phenomena may struggle with AI\'s multi-layered reality.',
-                allies: 'Systems Architects (share belief in coordination potential), Market Evolutionists (share preference for distributed approaches)'
-            },
-            'fatalist-observer': {
-                name: 'The Fatalist Observer',
-                profile: '[Coordination Collapse + Fragmented Understanding + Distributed Stewardship]',
-                description: 'You see AI fragmenting across multiple layers evolving too fast for governance, with coordination failing at every level and no central authority capable of effective oversight. You believe distributed stewardship is the only option available, but recognize it\'s insufficient for the challenge.',
-                focus: 'You prioritize adaptation over prevention, resilience over control, individual and organizational preparation, and acknowledging limits of human steering. You document what\'s happening as it unfolds.',
-                blindspot: 'You may miss genuine opportunities for steering that exist despite complexity. Fatalism can lead to premature disengagement from governance attempts that might actually work.',
-                allies: 'Complexity Pessimists (share observation of coordination collapse), Market Evolutionists (share embrace of distributed approaches)'
+            'witness': {
+                name: 'The Witness',
+                description: 'You\'re concerned about outcomes AND doubt human capacity to change the trajectory. You observe with alarm but see limited agency to alter what\'s unfolding.'
             }
         };
 
-        // ============================================
-        // WORLDVIEW CALCULATION
-        // ============================================
-
-        function calculateWorldview(scores) {
-            const coordination = scores.coordination >= 3 ? 'mature' : 'collapse';
-            const system = scores.system >= 3 ? 'fragmented' : 'monolithic';
-            const stewardship = scores.stewardship >= 3 ? 'distributed' : 'concentrated';
-
-            if (coordination === 'mature' && system === 'fragmented' && stewardship === 'distributed') {
-                return 'systems-architect';
-            } else if (coordination === 'mature' && system === 'monolithic' && stewardship === 'concentrated') {
-                return 'technocrat';
-            } else if (coordination === 'collapse' && system === 'monolithic' && stewardship === 'distributed') {
-                return 'market-evolutionist';
-            } else if (coordination === 'collapse' && system === 'fragmented' && stewardship === 'concentrated') {
-                return 'complexity-pessimist';
-            } else if (coordination === 'mature' && system === 'monolithic' && stewardship === 'distributed') {
-                return 'institutional-pragmatist';
-            } else if (coordination === 'collapse' && system === 'fragmented' && stewardship === 'distributed') {
-                return 'fatalist-observer';
+        // ==================== V2 WORLDVIEW DEFINITIONS ====================
+        const v2Worldviews = {
+            'systems-architect': {
+                name: 'The Systems Architect',
+                description: 'You see coordination maturing through better institutional design, recognize AI\'s fragmented nature, and believe in distributed stewardship. You focus on incentive alignment and governance that evolves with technology.'
+            },
+            'technocrat': {
+                name: 'The Technocrat',
+                description: 'You believe expert governance can manage AI if properly resourced. You see AI primarily as frontier capabilities and believe concentrated control through technical standards can work.'
+            },
+            'market-evolutionist': {
+                name: 'The Market Evolutionist',
+                description: 'You see coordination failing but trust market forces as better selection mechanisms. You view AI as transformative and believe distributed experimentation beats central planning.'
+            },
+            'complexity-pessimist': {
+                name: 'The Complexity Pessimist',
+                description: 'You recognize fragmentation creating ungovernable complexity and see coordination collapsing. You believe centralized intervention is necessary but increasingly difficult to implement.'
+            },
+            'institutional-pragmatist': {
+                name: 'The Institutional Pragmatist',
+                description: 'You see AI as governable through adapted institutional frameworks. You believe coordination improves through international cooperation and multi-stakeholder processes.'
+            },
+            'fatalist-observer': {
+                name: 'The Fatalist Observer',
+                description: 'You see fragmentation evolving too fast, coordination failing everywhere, and no central authority capable of oversight. You believe distributed stewardship is all that\'s available, but it\'s insufficient.'
             }
+        };
 
-            // For edge cases, find closest match
-            const coordScore = Math.abs(scores.coordination - 3);
-            const systemScore = Math.abs(scores.system - 3);
-            const stewardScore = Math.abs(scores.stewardship - 3);
-
-            if (coordScore <= systemScore && coordScore <= stewardScore) {
-                if (scores.coordination >= 3) return 'systems-architect';
-                else return 'complexity-pessimist';
-            } else if (systemScore <= stewardScore) {
-                if (scores.system >= 3) return 'systems-architect';
-                else return 'technocrat';
-            } else {
-                if (scores.stewardship >= 3) return 'fatalist-observer';
-                else return 'technocrat';
-            }
-        }
-
-        // ============================================
-        // HEXAGON VISUALIZATION
-        // ============================================
-
-        function drawHexagon(scores) {
-            const canvas = document.getElementById('hexagon-canvas');
-            const ctx = canvas.getContext('2d');
-            const centerX = canvas.width / 2;
-            const centerY = canvas.height / 2;
-            const radius = 180;
-
-            ctx.clearRect(0, 0, canvas.width, canvas.height);
-
-            // Draw hexagon grid lines
-            ctx.strokeStyle = '#e2e8f0';
-            ctx.lineWidth = 1;
-            for (let r = 60; r <= radius; r += 60) {
-                ctx.beginPath();
-                for (let i = 0; i <= 6; i++) {
-                    const angle = (i * 60 - 90) * Math.PI / 180;
-                    const x = centerX + r * Math.cos(angle);
-                    const y = centerY + r * Math.sin(angle);
-                    if (i === 0) ctx.moveTo(x, y);
-                    else ctx.lineTo(x, y);
-                }
-                ctx.stroke();
-            }
-
-            // Draw axes
-            ctx.strokeStyle = '#cbd5e0';
-            ctx.lineWidth = 2;
-            for (let i = 0; i < 6; i++) {
-                const angle = (i * 60 - 90) * Math.PI / 180;
-                ctx.beginPath();
-                ctx.moveTo(centerX, centerY);
-                ctx.lineTo(centerX + radius * Math.cos(angle), centerY + radius * Math.sin(angle));
-                ctx.stroke();
-            }
-
-            // Map scores to hexagon vertices (normalized to 0-1 scale)
-            const coordNorm = (scores.coordination - 1) / 4;
-            const systemNorm = (scores.system - 1) / 4;
-            const stewardNorm = (scores.stewardship - 1) / 4;
-
-            // Calculate position (simplified hexagon mapping)
-            const vertices = [
-                { x: centerX + radius * coordNorm * Math.cos(-90 * Math.PI / 180), 
-                  y: centerY + radius * coordNorm * Math.sin(-90 * Math.PI / 180) },
-                { x: centerX + radius * systemNorm * Math.cos(30 * Math.PI / 180), 
-                  y: centerY + radius * systemNorm * Math.sin(30 * Math.PI / 180) },
-                { x: centerX + radius * stewardNorm * Math.cos(150 * Math.PI / 180), 
-                  y: centerY + radius * stewardNorm * Math.sin(150 * Math.PI / 180) }
-            ];
-
-            // Draw user's position
-            ctx.fillStyle = 'rgba(102, 126, 234, 0.3)';
-            ctx.strokeStyle = '#667eea';
-            ctx.lineWidth = 3;
-            ctx.beginPath();
-            ctx.moveTo(vertices[0].x, vertices[0].y);
-            ctx.lineTo(vertices[1].x, vertices[1].y);
-            ctx.lineTo(vertices[2].x, vertices[2].y);
-            ctx.closePath();
-            ctx.fill();
-            ctx.stroke();
-
-            // Draw points
-            vertices.forEach(v => {
-                ctx.beginPath();
-                ctx.arc(v.x, v.y, 6, 0, 2 * Math.PI);
-                ctx.fillStyle = '#667eea';
-                ctx.fill();
-            });
-
-            // Add labels
-            ctx.fillStyle = '#2d3748';
-            ctx.font = 'bold 14px -apple-system, sans-serif';
-            ctx.textAlign = 'center';
-            
-            const labels = [
-                { text: 'Coordination\nMaturity', angle: -90, offset: 20 },
-                { text: 'Fragmented\nUnderstanding', angle: 30, offset: 20 },
-                { text: 'Distributed\nStewardship', angle: 150, offset: 20 }
-            ];
-
-            labels.forEach(label => {
-                const angle = label.angle * Math.PI / 180;
-                const x = centerX + (radius + label.offset) * Math.cos(angle);
-                const y = centerY + (radius + label.offset) * Math.sin(angle);
-                const lines = label.text.split('\n');
-                lines.forEach((line, i) => {
-                    ctx.fillText(line, x, y + (i * 16) - ((lines.length - 1) * 8));
-                });
-            });
-        }
-
-        // ============================================
-        // FORM SUBMISSION AND RESULTS
-        // ============================================
-
-        document.getElementById('assessment-form').addEventListener('submit', function(e) {
+        // ==================== V1 FORM HANDLER ====================
+        document.getElementById('v1-form').addEventListener('submit', function(e) {
             e.preventDefault();
 
-            // Calculate scores for each axis
+            // Calculate V1 scores
+            const outcomesScore = (
+                parseInt(document.querySelector('input[name="v1q1"]:checked').value) +
+                parseInt(document.querySelector('input[name="v1q2"]:checked').value) +
+                parseInt(document.querySelector('input[name="v1q3"]:checked').value) +
+                parseInt(document.querySelector('input[name="v1q4"]:checked').value)
+            ) / 4;
+
+            const agencyScore = (
+                parseInt(document.querySelector('input[name="v1q5"]:checked').value) +
+                parseInt(document.querySelector('input[name="v1q6"]:checked').value) +
+                parseInt(document.querySelector('input[name="v1q7"]:checked').value) +
+                parseInt(document.querySelector('input[name="v1q8"]:checked').value)
+            ) / 4;
+
+            // Determine quadrant
+            let quadrant;
+            if (outcomesScore >= 3 && agencyScore >= 3) quadrant = 'gardener';
+            else if (outcomesScore < 3 && agencyScore >= 3) quadrant = 'sentinel';
+            else if (outcomesScore >= 3 && agencyScore < 3) quadrant = 'believer';
+            else quadrant = 'witness';
+
+            // Store V1 data globally
+            v1Data = {
+                user_id: generateUserId(),
+                email: document.getElementById('v1-email').value || null,
+                outcomes: outcomesScore,
+                agency: agencyScore,
+                quadrant: quadrant
+            };
+
+            // Send to Apps Script
+            sendToAppsScript('v1', v1Data);
+
+            // Display V1 results
+            displayV1Results(v1Data);
+
+            // Show V1 results section
+            showSection('v1-results');
+        });
+
+        function displayV1Results(data) {
+            const quadrantInfo = v1Quadrants[data.quadrant];
+            const resultBox = document.getElementById('v1-result-box');
+            
+            resultBox.innerHTML = `
+                <h3>${quadrantInfo.name}</h3>
+                <p><strong>Outcomes Score:</strong> ${data.outcomes.toFixed(2)} (${data.outcomes >= 3 ? 'Optimistic' : 'Concerned'})</p>
+                <p><strong>Agency Score:</strong> ${data.agency.toFixed(2)} (${data.agency >= 3 ? 'High belief in agency' : 'Low belief in agency'})</p>
+                <p>${quadrantInfo.description}</p>
+            `;
+        }
+
+        // ==================== V2 FORM HANDLER ====================
+        document.getElementById('v2-form').addEventListener('submit', function(e) {
+            e.preventDefault();
+
+            // Calculate V2 scores
             const coordination = (
-                parseInt(document.querySelector('input[name="q1"]:checked').value) +
-                parseInt(document.querySelector('input[name="q2"]:checked').value) +
-                parseInt(document.querySelector('input[name="q3"]:checked').value) +
-                parseInt(document.querySelector('input[name="q4"]:checked').value)
+                parseInt(document.querySelector('input[name="v2q1"]:checked').value) +
+                parseInt(document.querySelector('input[name="v2q2"]:checked').value) +
+                parseInt(document.querySelector('input[name="v2q3"]:checked').value) +
+                parseInt(document.querySelector('input[name="v2q4"]:checked').value)
             ) / 4;
 
             const system = (
-                parseInt(document.querySelector('input[name="q5"]:checked').value) +
-                parseInt(document.querySelector('input[name="q6"]:checked').value) +
-                parseInt(document.querySelector('input[name="q7"]:checked').value) +
-                parseInt(document.querySelector('input[name="q8"]:checked').value)
+                parseInt(document.querySelector('input[name="v2q5"]:checked').value) +
+                parseInt(document.querySelector('input[name="v2q6"]:checked').value) +
+                parseInt(document.querySelector('input[name="v2q7"]:checked').value) +
+                parseInt(document.querySelector('input[name="v2q8"]:checked').value)
             ) / 4;
 
             const stewardship = (
-                parseInt(document.querySelector('input[name="q9"]:checked').value) +
-                parseInt(document.querySelector('input[name="q10"]:checked').value) +
-                parseInt(document.querySelector('input[name="q11"]:checked').value) +
-                parseInt(document.querySelector('input[name="q12"]:checked').value)
+                parseInt(document.querySelector('input[name="v2q9"]:checked').value) +
+                parseInt(document.querySelector('input[name="v2q10"]:checked').value) +
+                parseInt(document.querySelector('input[name="v2q11"]:checked').value) +
+                parseInt(document.querySelector('input[name="v2q12"]:checked').value)
             ) / 4;
 
-            const scores = { coordination, system, stewardship };
-            const worldviewKey = calculateWorldview(scores);
-            const worldview = worldviews[worldviewKey];
+            // Calculate worldview
+            const worldview = calculateV2Worldview(coordination, system, stewardship);
 
-            // Check for V1 data
-            const v1Data = getV1Data();
-
-            // Prepare data for Apps Script
-            const submissionData = {
-                assessment_type: 'v2',
-                user_id: v1Data ? v1Data.user_id : generateUserId(),
-                email: document.getElementById('email').value || null,
-                came_from_v1: v1Data ? true : false,
-                v1_outcomes: v1Data ? parseFloat(v1Data.outcomes) : null,
-                v1_agency: v1Data ? parseFloat(v1Data.agency) : null,
-                v1_quadrant: v1Data ? v1Data.quadrant : null,
-                q1_coordination: parseInt(document.querySelector('input[name="q1"]:checked').value),
-                q2_coordination: parseInt(document.querySelector('input[name="q2"]:checked').value),
-                q3_coordination: parseInt(document.querySelector('input[name="q3"]:checked').value),
-                q4_coordination: parseInt(document.querySelector('input[name="q4"]:checked').value),
-                q5_system: parseInt(document.querySelector('input[name="q5"]:checked').value),
-                q6_system: parseInt(document.querySelector('input[name="q6"]:checked').value),
-                q7_system: parseInt(document.querySelector('input[name="q7"]:checked').value),
-                q8_system: parseInt(document.querySelector('input[name="q8"]:checked').value),
-                q9_stewardship: parseInt(document.querySelector('input[name="q9"]:checked').value),
-                q10_stewardship: parseInt(document.querySelector('input[name="q10"]:checked').value),
-                q11_stewardship: parseInt(document.querySelector('input[name="q11"]:checked').value),
-                q12_stewardship: parseInt(document.querySelector('input[name="q12"]:checked').value)
+            // Prepare V2 data
+            const v2Data = {
+                user_id: v1Data.user_id,
+                email: v1Data.email,
+                came_from_v1: true,
+                v1_outcomes: v1Data.outcomes,
+                v1_agency: v1Data.agency,
+                v1_quadrant: v1Data.quadrant,
+                coordination: coordination,
+                system: system,
+                stewardship: stewardship,
+                worldview: worldview
             };
 
-            // Send to Google Apps Script
-            fetch('https://script.google.com/macros/s/AKfycbyvQaae32HuxG8eE9mKj87XkbDQFsOkl-0-q1a1UeElf7NHQIj5X61NPkwjOL1XLdT8zQ/exec', {
+            // Send to Apps Script
+            sendToAppsScript('v2', v2Data);
+
+            // Display V2 results
+            displayV2Results(v2Data);
+
+            // Show V2 results section
+            showSection('v2-results');
+        });
+
+        function calculateV2Worldview(coordination, system, stewardship) {
+            const coordDir = coordination >= 3 ? 'mature' : 'collapse';
+            const sysDir = system >= 3 ? 'fragmented' : 'monolithic';
+            const stewDir = stewardship >= 3 ? 'distributed' : 'concentrated';
+            
+            if (coordDir === 'mature' && sysDir === 'fragmented' && stewDir === 'distributed') {
+                return 'systems-architect';
+            } else if (coordDir === 'mature' && sysDir === 'monolithic' && stewDir === 'concentrated') {
+                return 'technocrat';
+            } else if (coordDir === 'collapse' && sysDir === 'monolithic' && stewDir === 'distributed') {
+                return 'market-evolutionist';
+            } else if (coordDir === 'collapse' && sysDir === 'fragmented' && stewDir === 'concentrated') {
+                return 'complexity-pessimist';
+            } else if (coordDir === 'mature' && sysDir === 'monolithic' && stewDir === 'distributed') {
+                return 'institutional-pragmatist';
+            } else {
+                return 'fatalist-observer';
+            }
+        }
+
+        function displayV2Results(data) {
+            const worldviewInfo = v2Worldviews[data.worldview];
+            const v1QuadrantInfo = v1Quadrants[data.v1_quadrant];
+            const resultBox = document.getElementById('v2-result-box');
+            
+            resultBox.innerHTML = `
+                <div class="v1-journey-box">
+                    <h4>📊 Your Journey: V1 → V2</h4>
+                    <p><strong>V1 Position:</strong> ${v1QuadrantInfo.name}</p>
+                    <p><strong>V2 Position:</strong> ${worldviewInfo.name}</p>
+                </div>
+                
+                <h3>${worldviewInfo.name}</h3>
+                
+                <p><strong>Coordination:</strong> ${data.coordination.toFixed(2)} (${data.coordination >= 3 ? 'Maturing' : 'Collapsing'})</p>
+                <p><strong>System:</strong> ${data.system.toFixed(2)} (${data.system >= 3 ? 'Fragmented' : 'Monolithic'})</p>
+                <p><strong>Stewardship:</strong> ${data.stewardship.toFixed(2)} (${data.stewardship >= 3 ? 'Distributed' : 'Concentrated'})</p>
+                
+                <p>${worldviewInfo.description}</p>
+                
+                <div style="margin-top: 30px; padding: 20px; background: #fffaf0; border-radius: 10px; border-left: 4px solid #ed8936;">
+                    <h4 style="color: #c05621; margin-bottom: 12px;">💡 What V2 Reveals</h4>
+                    <p style="line-height: 1.7;">
+                        V1 showed you believe outcomes will be <strong>${data.v1_outcomes >= 3 ? 'positive' : 'concerning'}</strong> 
+                        and that we have <strong>${data.v1_agency >= 3 ? 'significant' : 'limited'} agency</strong>. 
+                        V2 reveals you see coordination <strong>${data.coordination >= 3 ? 'maturing' : 'collapsing'}</strong>, 
+                        AI as <strong>${data.system >= 3 ? 'fragmented across layers' : 'a unified phenomenon'}</strong>, 
+                        and believe judgment should be <strong>${data.stewardship >= 3 ? 'distributed' : 'concentrated'}</strong>.
+                    </p>
+                </div>
+            `;
+        }
+
+        // ==================== SEND TO APPS SCRIPT ====================
+        function sendToAppsScript(type, data) {
+            const payload = {
+                assessment_type: type,
+                ...data
+            };
+
+            // Map V2 data to Apps Script expected format
+            if (type === 'v2') {
+                const v2Questions = {
+                    q1_coordination: document.querySelector('input[name="v2q1"]:checked').value,
+                    q2_coordination: document.querySelector('input[name="v2q2"]:checked').value,
+                    q3_coordination: document.querySelector('input[name="v2q3"]:checked').value,
+                    q4_coordination: document.querySelector('input[name="v2q4"]:checked').value,
+                    q5_system: document.querySelector('input[name="v2q5"]:checked').value,
+                    q6_system: document.querySelector('input[name="v2q6"]:checked').value,
+                    q7_system: document.querySelector('input[name="v2q7"]:checked').value,
+                    q8_system: document.querySelector('input[name="v2q8"]:checked').value,
+                    q9_stewardship: document.querySelector('input[name="v2q9"]:checked').value,
+                    q10_stewardship: document.querySelector('input[name="v2q10"]:checked').value,
+                    q11_stewardship: document.querySelector('input[name="v2q11"]:checked').value,
+                    q12_stewardship: document.querySelector('input[name="v2q12"]:checked').value
+                };
+                Object.assign(payload, v2Questions);
+            } else {
+                // V1 questions
+                const v1Questions = {
+                    q1: document.querySelector('input[name="v1q1"]:checked').value,
+                    q2: document.querySelector('input[name="v1q2"]:checked').value,
+                    q3: document.querySelector('input[name="v1q3"]:checked').value,
+                    q4: document.querySelector('input[name="v1q4"]:checked').value,
+                    q5: document.querySelector('input[name="v1q5"]:checked').value,
+                    q6: document.querySelector('input[name="v1q6"]:checked').value,
+                    q7: document.querySelector('input[name="v1q7"]:checked').value,
+                    q8: document.querySelector('input[name="v1q8"]:checked').value
+                };
+                Object.assign(payload, v1Questions);
+            }
+
+            fetch(APPS_SCRIPT_URL, {
                 method: 'POST',
                 mode: 'no-cors',
                 headers: {
                     'Content-Type': 'application/json'
                 },
-                body: JSON.stringify(submissionData)
+                body: JSON.stringify(payload)
             })
             .then(() => {
-                console.log('V2 data submitted successfully');
+                console.log(`${type.toUpperCase()} data submitted successfully`);
             })
             .catch(error => {
-                console.error('Error submitting V2 data:', error);
-                // Continue showing results even if submission fails
+                console.error(`Error submitting ${type.toUpperCase()} data:`, error);
             });
-
-            // Update score displays
-            document.getElementById('coord-score').style.width = (coordination * 20) + '%';
-            document.getElementById('coord-text').textContent = 
-                coordination >= 3 ? 'Trending toward Maturity' : 'Trending toward Collapse';
-
-            document.getElementById('system-score').style.width = (system * 20) + '%';
-            document.getElementById('system-text').textContent = 
-                system >= 3 ? 'Fragmented Understanding' : 'Monolithic Understanding';
-
-            document.getElementById('steward-score').style.width = (stewardship * 20) + '%';
-            document.getElementById('steward-text').textContent = 
-                stewardship >= 3 ? 'Distributed Stewardship' : 'Concentrated Control';
-
-            // Build results HTML with V1 context if available
-            let resultHTML = `<h3>${worldview.name}</h3>
-                <p><strong>${worldview.profile}</strong></p>`;
-
-            // Add V1 context section if data exists
-            if (v1Data) {
-                const v1Context = getV1V2Connection(v1Data, worldviewKey);
-                const outcomesLabel = v1Data.outcomes >= 3 ? 'Optimistic about outcomes' : 'Concerned about outcomes';
-                const agencyLabel = v1Data.agency >= 3 ? 'High belief in agency' : 'Low belief in agency';
-                
-                resultHTML += `
-                <div class="v1-journey-box">
-                    <h4>📊 Your Journey from V1 to V2</h4>
-                    <p style="margin-bottom: 10px;"><strong>V1 Position:</strong> ${getQuadrantName(v1Data.quadrant)} 
-                    (${outcomesLabel}, ${agencyLabel})</p>
-                    <p style="margin-bottom: 10px;"><strong>V2 Position:</strong> ${worldview.name}</p>
-                    <p class="v1-connection">
-                        <strong>Connection:</strong> ${v1Context}
-                    </p>
-                </div>`;
-            }
-
-            resultHTML += `
-                <p>${worldview.description}</p>
-                <p><strong>Your Strategic Focus:</strong> ${worldview.focus}</p>
-                <p><strong>Your Blind Spot:</strong> ${worldview.blindspot}</p>
-                <p><strong>Potential Allies:</strong> ${worldview.allies}</p>`;
-
-            // Add V1-V2 comparison insight if available
-            if (v1Data) {
-                resultHTML += `
-                <div class="v2-adds-box">
-                    <h4>💡 What V2 Adds to Your V1 Understanding</h4>
-                    <p style="line-height: 1.7;">
-                        V1 showed you where you sit on control and outcomes. V2 reveals that you see AI as 
-                        <strong>${system >= 3 ? 'fragmented across multiple layers' : 'a unified phenomenon'}</strong>, 
-                        observe coordination capacity <strong>${coordination >= 3 ? 'maturing' : 'collapsing'}</strong>, 
-                        and believe judgment should be <strong>${stewardship >= 3 ? 'distributed' : 'concentrated'}</strong>.
-                    </p>
-                    <p style="line-height: 1.7; margin-top: 12px;">
-                        These three dimensions explain <em>how</em> you reason about AI governance, not just <em>where</em> you stand.
-                    </p>
-                </div>`;
-            }
-
-            // Display worldview
-            const resultDiv = document.getElementById('worldview-result');
-            resultDiv.innerHTML = resultHTML;
-
-            // Draw hexagon
-            const canvas = document.getElementById('hexagon-canvas');
-            canvas.width = 500;
-            canvas.height = 500;
-            drawHexagon(scores);
-
-            // Show results, hide form
-            document.querySelector('.content').style.display = 'none';
-            document.getElementById('results').style.display = 'block';
-
-            // Scroll to results
-            document.getElementById('results').scrollIntoView({ behavior: 'smooth' });
-        });
-
-        // ============================================
-        // PAGE LOAD - SHOW V1 CONTEXT IF PRESENT
-        // ============================================
-
-        window.addEventListener('DOMContentLoaded', function() {
-            const v1Data = getV1Data();
-            if (v1Data) {
-                document.getElementById('v1-context-intro').style.display = 'block';
-            }
-        });
+        }
     </script>
 </body>
 </html>
