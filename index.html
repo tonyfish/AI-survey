@@ -1725,6 +1725,12 @@
             return connections[key] || 'Your V1 and V2 positions offer complementary perspectives on AI governance—the Diamond shows where you stand, while the Hexagon reveals how you reason about coordination, system complexity, and stewardship.';
         }
 
+        // ==================== UTILITY FUNCTIONS ====================
+        
+        function generateUserId() {
+            return 'user_' + new Date().getTime() + '_' + Math.random().toString(36).substr(2, 9);
+        }
+        
         // ==================== V1 FORM HANDLER ====================
         
         document.getElementById('v1-form').addEventListener('submit', function(e) {
@@ -1783,6 +1789,50 @@
                 quadrant: quadrantInfo.quadrant,
                 email: email
             };
+            
+            // Send V1 data to Apps Script
+            const APPS_SCRIPT_URL = 'YOUR_APPS_SCRIPT_URL_HERE'; // Replace with your actual URL
+            
+            if (APPS_SCRIPT_URL !== 'YOUR_APPS_SCRIPT_URL_HERE') {
+                const v1Payload = {
+                    assessment_type: 'v1',
+                    user_id: generateUserId(),
+                    email: email,
+                    q1: parseInt(document.querySelector('input[name="v1q1"]:checked').value),
+                    q2: parseInt(document.querySelector('input[name="v1q2"]:checked').value),
+                    q3: parseInt(document.querySelector('input[name="v1q3"]:checked').value),
+                    q4: parseInt(document.querySelector('input[name="v1q4"]:checked').value),
+                    q5: parseInt(document.querySelector('input[name="v1q5"]:checked').value),
+                    q6: parseInt(document.querySelector('input[name="v1q6"]:checked').value),
+                    q7: parseInt(document.querySelector('input[name="v1q7"]:checked').value),
+                    q8: parseInt(document.querySelector('input[name="v1q8"]:checked').value),
+                    q9: parseInt(document.querySelector('input[name="v1q9"]:checked').value),
+                    q10: parseInt(document.querySelector('input[name="v1q10"]:checked').value),
+                    q11: parseInt(document.querySelector('input[name="v1q11"]:checked').value),
+                    q12: parseInt(document.querySelector('input[name="v1q12"]:checked').value),
+                    q13: parseInt(document.querySelector('input[name="v1q13"]:checked').value),
+                    q14: parseInt(document.querySelector('input[name="v1q14"]:checked').value),
+                    q15: parseInt(document.querySelector('input[name="v1q15"]:checked').value),
+                    outcomes_score: parseFloat(outcomes.toFixed(1)),
+                    agency_score: parseFloat(agency.toFixed(1)),
+                    quadrant: quadrantInfo.quadrant
+                };
+                
+                fetch(APPS_SCRIPT_URL, {
+                    method: 'POST',
+                    mode: 'no-cors',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify(v1Payload)
+                })
+                .then(() => {
+                    console.log('V1 data submitted successfully');
+                })
+                .catch(error => {
+                    console.error('Error submitting V1 data:', error);
+                });
+            }
             
             // Display results
             const resultBox = document.getElementById('v1-result-box');
@@ -1853,6 +1903,53 @@
             
             const worldviewKey = calculateWorldview(coordination, system, stewardship);
             const worldview = worldviews[worldviewKey];
+            const email = document.getElementById('v2-email').value;
+            
+            // Send V2 data to Apps Script
+            const APPS_SCRIPT_URL = 'YOUR_APPS_SCRIPT_URL_HERE'; // Replace with your actual URL
+            
+            if (APPS_SCRIPT_URL !== 'YOUR_APPS_SCRIPT_URL_HERE') {
+                const v2Payload = {
+                    assessment_type: 'v2',
+                    user_id: generateUserId(),
+                    email: email,
+                    came_from_v1: v1Data.quadrant ? true : false,
+                    v1_outcomes: v1Data.outcomes || null,
+                    v1_agency: v1Data.agency || null,
+                    v1_quadrant: v1Data.quadrant || null,
+                    q1_coordination: parseInt(document.querySelector('input[name="v2q1"]:checked').value),
+                    q2_coordination: parseInt(document.querySelector('input[name="v2q2"]:checked').value),
+                    q3_coordination: parseInt(document.querySelector('input[name="v2q3"]:checked').value),
+                    q4_coordination: parseInt(document.querySelector('input[name="v2q4"]:checked').value),
+                    q5_system: parseInt(document.querySelector('input[name="v2q5"]:checked').value),
+                    q6_system: parseInt(document.querySelector('input[name="v2q6"]:checked').value),
+                    q7_system: parseInt(document.querySelector('input[name="v2q7"]:checked').value),
+                    q8_system: parseInt(document.querySelector('input[name="v2q8"]:checked').value),
+                    q9_stewardship: parseInt(document.querySelector('input[name="v2q9"]:checked').value),
+                    q10_stewardship: parseInt(document.querySelector('input[name="v2q10"]:checked').value),
+                    q11_stewardship: parseInt(document.querySelector('input[name="v2q11"]:checked').value),
+                    q12_stewardship: parseInt(document.querySelector('input[name="v2q12"]:checked').value),
+                    coordination_score: parseFloat(coordination.toFixed(2)),
+                    system_score: parseFloat(system.toFixed(2)),
+                    stewardship_score: parseFloat(stewardship.toFixed(2)),
+                    worldview: worldviewKey
+                };
+                
+                fetch(APPS_SCRIPT_URL, {
+                    method: 'POST',
+                    mode: 'no-cors',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify(v2Payload)
+                })
+                .then(() => {
+                    console.log('V2 data submitted successfully');
+                })
+                .catch(error => {
+                    console.error('Error submitting V2 data:', error);
+                });
+            }
             
             // Update score bars
             document.getElementById('coordination-bar').style.width = (coordination * 20) + '%';
