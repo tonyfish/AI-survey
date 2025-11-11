@@ -1369,7 +1369,7 @@
                     <!-- Will be populated by JavaScript -->
                 </div>
 
-                <!-- Three Dimensions Cards -->
+                <!-- Three Dimensions Cards + Triangle Plot -->
                 <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px; margin: 30px 0;">
                     <!-- Coordination Card -->
                     <div style="background: white; border-radius: 12px; padding: 25px; box-shadow: 0 4px 15px rgba(0,0,0,0.1); border-left: 6px solid #4CAF50;">
@@ -1410,6 +1410,56 @@
                         </p>
                         <p style="color: #666; font-size: 0.95em; line-height: 1.6; margin-top: 15px; text-align: left;">
                             <strong>What this means:</strong> <span id="stewardship-meaning"></span>
+                        </p>
+                    </div>
+
+                    <!-- Triangle Plot Card -->
+                    <div style="background: white; border-radius: 12px; padding: 25px; box-shadow: 0 4px 15px rgba(0,0,0,0.1); border-left: 6px solid #764ba2;">
+                        <h3 style="color: #2c3e50; margin-bottom: 15px; font-size: 1.3em;">🔺 Your Position</h3>
+                        <div style="display: flex; justify-content: center; align-items: center; margin-top: 10px;">
+                            <svg id="triangle-plot" width="260" height="240" viewBox="0 0 260 240" style="max-width: 100%;">
+                                <!-- Background gradient -->
+                                <defs>
+                                    <linearGradient id="trigrad" x1="0%" y1="0%" x2="100%" y2="100%">
+                                        <stop offset="0%" style="stop-color:#4CAF50;stop-opacity:0.08" />
+                                        <stop offset="100%" style="stop-color:#2196F3;stop-opacity:0.08" />
+                                    </linearGradient>
+                                </defs>
+                                
+                                <!-- Main triangle -->
+                                <polygon points="130,20 30,210 230,210" 
+                                         fill="url(#trigrad)" 
+                                         stroke="#667eea" 
+                                         stroke-width="3" />
+                                
+                                <!-- Grid lines -->
+                                <line x1="130" y1="20" x2="130" y2="210" stroke="#e0e0e0" stroke-width="1" stroke-dasharray="3,3"/>
+                                <line x1="30" y1="210" x2="180" y2="115" stroke="#e0e0e0" stroke-width="1" stroke-dasharray="3,3"/>
+                                <line x1="230" y1="210" x2="80" y2="115" stroke="#e0e0e0" stroke-width="1" stroke-dasharray="3,3"/>
+                                
+                                <!-- Corner labels (compact) -->
+                                <text x="130" y="12" text-anchor="middle" font-family="Poppins" font-size="9" font-weight="600" fill="#4CAF50">
+                                    High Coord
+                                </text>
+                                <text x="20" y="225" text-anchor="middle" font-family="Poppins" font-size="9" font-weight="600" fill="#2196F3">
+                                    Fragmented
+                                </text>
+                                <text x="240" y="225" text-anchor="middle" font-family="Poppins" font-size="9" font-weight="600" fill="#FF9800">
+                                    Distributed
+                                </text>
+                                
+                                <!-- Peak positions (small reference dots) -->
+                                <circle cx="130" cy="35" r="3" fill="#4CAF50" opacity="0.5"/>
+                                <circle cx="50" cy="195" r="3" fill="#2196F3" opacity="0.5"/>
+                                <circle cx="210" cy="195" r="3" fill="#FF9800" opacity="0.5"/>
+                                
+                                <!-- User position dot (will be positioned by JavaScript) -->
+                                <circle id="user-position-ring" cx="130" cy="115" r="14" fill="none" stroke="#764ba2" stroke-width="2" opacity="0.3"/>
+                                <circle id="user-position-dot" cx="130" cy="115" r="9" fill="#764ba2" stroke="white" stroke-width="2.5"/>
+                            </svg>
+                        </div>
+                        <p style="color: #666; font-size: 0.9em; line-height: 1.5; margin-top: 15px; text-align: center;">
+                            Your unique position across all three dimensions
                         </p>
                     </div>
                 </div>
@@ -1641,6 +1691,54 @@
             } else {
                 return 'institutional-pragmatist';
             }
+        }
+
+        function plotTrianglePosition(coordination, system, stewardship) {
+            // Normalize scores to 0-1 range
+            const coordNorm = (coordination - 1) / 4; // 1-5 becomes 0-1
+            const systemNorm = (system - 1) / 4;
+            const stewardNorm = (stewardship - 1) / 4;
+            
+            // Triangle dimensions (matching SVG viewBox)
+            const topX = 130;
+            const topY = 20;
+            const leftX = 30;
+            const leftY = 210;
+            const rightX = 230;
+            const rightY = 210;
+            
+            // Calculate position using barycentric coordinates
+            // High coordination = towards top
+            // High system (fragmented) = towards left
+            // High stewardship (distributed) = towards right
+            
+            // Invert coordination (high score = towards top = lower Y)
+            const coordWeight = coordNorm;
+            const systemWeight = systemNorm;
+            const stewardWeight = stewardNorm;
+            
+            // Barycentric interpolation
+            // Bottom edge represents low coordination
+            // Movement towards top represents high coordination
+            // Left side represents fragmented system
+            // Right side represents distributed stewardship
+            
+            const x = leftX * systemWeight + rightX * stewardWeight + topX * (1 - systemWeight - stewardWeight) * coordWeight * 2;
+            const y = leftY * (1 - coordWeight) + topY * coordWeight;
+            
+            // Adjust for proper triangle positioning
+            const baseY = leftY;
+            const height = baseY - topY;
+            
+            // Recalculate with proper weights
+            const finalX = topX + (stewardWeight - systemWeight) * 100;
+            const finalY = baseY - (coordWeight * height);
+            
+            // Update SVG elements
+            document.getElementById('user-position-dot').setAttribute('cx', finalX);
+            document.getElementById('user-position-dot').setAttribute('cy', finalY);
+            document.getElementById('user-position-ring').setAttribute('cx', finalX);
+            document.getElementById('user-position-ring').setAttribute('cy', finalY);
         }
 
         function drawHexagon(scores) {
@@ -2010,6 +2108,9 @@
             document.getElementById('stewardship-meaning').textContent = stewardDistributed ?
                 'You believe judgment and decision-making should be dispersed across many actors - labs, regulators, users, civil society - rather than centralized.' :
                 'You believe critical decisions should be made by a small number of highly expert institutions with centralized authority.';
+            
+            // Plot position on triangle
+            plotTrianglePosition(coordination, system, stewardship);
             
             // Display V2 worldview details
             let resultHTML = `
