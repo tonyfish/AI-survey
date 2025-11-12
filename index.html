@@ -1342,9 +1342,20 @@
     </div>
 
     <script>
+        // ==================== GOOGLE APPS SCRIPT URL ====================
+        // PASTE YOUR APPS SCRIPT WEB APP URL HERE:
+        const APPS_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbyvQaae32HuxG8eE9mKj87XkbDQFsOkl-0-q1a1UeElf7NHQIj5X61NPkwjOL1XLdT8zQ/exec';
+        
         // Global variables to store assessment data
         let v1Data = {};
         let v2Data = {};
+        
+        // Generate unique user ID
+        function generateUserId() {
+            return 'user_' + Date.now() + '_' + Math.random().toString(36).substr(2, 9);
+        }
+        
+        const USER_ID = generateUserId();
 
         // ==================== V1 FORM SUBMISSION ====================
         document.getElementById('v1-form').addEventListener('submit', function(e) {
@@ -1425,6 +1436,68 @@
             
             // Scroll to results
             document.getElementById('v1-results').scrollIntoView({ behavior: 'smooth' });
+            
+            // Submit V1 data to Google Sheets
+            submitData('v1', {
+                outcomes_score: outcomes,
+                agency_score: agency,
+                quadrant: quadrant
+            });
+        }
+        
+        function submitData(assessmentType, scores) {
+            if (APPS_SCRIPT_URL === 'PASTE_YOUR_APPS_SCRIPT_URL_HERE') {
+                console.log('Apps Script URL not configured - data not submitted');
+                return;
+            }
+            
+            console.log(`Submitting ${assessmentType.toUpperCase()} data...`);
+            
+            const payload = {
+                user_id: USER_ID,
+                timestamp: new Date().toISOString(),
+                assessment_type: assessmentType
+            };
+            
+            // Add scores
+            Object.assign(payload, scores);
+            
+            // Add question responses
+            if (assessmentType === 'v1') {
+                for (let i = 1; i <= 15; i++) {
+                    const response = document.querySelector(`input[name="v1q${i}"]:checked`);
+                    payload[`q${i}`] = response ? response.value : '';
+                }
+            } else if (assessmentType === 'v2') {
+                for (let i = 1; i <= 12; i++) {
+                    const response = document.querySelector(`input[name="v2q${i}"]:checked`);
+                    payload[`q${i}`] = response ? response.value : '';
+                }
+                // Include V1 context if available
+                if (v1Data.quadrant) {
+                    payload.v1_quadrant = v1Data.quadrant;
+                    payload.v1_outcomes = v1Data.outcomes;
+                    payload.v1_agency = v1Data.agency;
+                }
+            }
+            
+            console.log(`${assessmentType.toUpperCase()} payload:`, payload);
+            
+            // Submit to Google Apps Script
+            fetch(APPS_SCRIPT_URL, {
+                method: 'POST',
+                mode: 'no-cors',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify(payload)
+            })
+            .then(() => {
+                console.log(`✅ ${assessmentType.toUpperCase()} data submitted successfully`);
+            })
+            .catch(error => {
+                console.error(`❌ Error submitting ${assessmentType.toUpperCase()} data:`, error);
+            });
         }
 
         function drawDiamond(outcomes, agency, quadrant) {
@@ -1742,6 +1815,14 @@
             
             // Scroll to results
             document.getElementById('v2-results').scrollIntoView({ behavior: 'smooth' });
+            
+            // Submit V2 data to Google Sheets
+            submitData('v2', {
+                coordination_score: coordination,
+                system_score: system,
+                stewardship_score: stewardship,
+                worldview: worldview
+            });
         }
 
         function updateDimensionCard(dimension, score, label, meaning) {
