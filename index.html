@@ -782,6 +782,23 @@
 
                 <div id="quadrant-description" class="quadrant-desc"></div>
 
+                <!-- Email Collection -->
+                <div class="email-section" style="margin-top: 30px; padding: 20px; background: #f8f9fa; border-radius: 12px; border-left: 4px solid #667eea;">
+                    <h3 style="color: #2c3e50; margin-bottom: 15px; font-size: 1.1em;">📧 Save Your Results (Optional)</h3>
+                    <p style="color: #666; margin-bottom: 15px; line-height: 1.6;">Enter your email to receive a copy of your V1 assessment. We'll also include your V2 results when you complete Part 2.</p>
+                    <div style="display: flex; gap: 10px; align-items: flex-start; flex-wrap: wrap;">
+                        <div style="flex: 1; min-width: 250px;">
+                            <input type="email" id="user-email" placeholder="your.email@example.com" 
+                                   style="width: 100%; padding: 12px; border: 2px solid #ddd; border-radius: 8px; font-size: 1em; font-family: 'Poppins', sans-serif;">
+                            <div id="email-error" style="color: #f44336; font-size: 0.9em; margin-top: 5px; display: none;"></div>
+                        </div>
+                        <button onclick="saveEmail()" id="save-email-btn" class="btn" style="background: #4CAF50; padding: 12px 24px; white-space: nowrap;">Save Email</button>
+                    </div>
+                    <div id="email-confirmation" style="color: #4CAF50; font-weight: 600; margin-top: 10px; display: none;">
+                        ✅ Email saved! Thank you
+                    </div>
+                </div>
+
                 <button onclick="showV2Bridge()" class="btn" style="margin-top: 30px;">Continue to Part 2</button>
             </div>
         </div>
@@ -1349,6 +1366,7 @@
         // Global variables to store assessment data
         let v1Data = {};
         let v2Data = {};
+        let userEmail = ''; // Store user's email if provided
         
         // Generate unique user ID
         function generateUserId() {
@@ -1456,7 +1474,8 @@
             const payload = {
                 user_id: USER_ID,
                 timestamp: new Date().toISOString(),
-                assessment_type: assessmentType
+                assessment_type: assessmentType,
+                email: userEmail || '' // Include email if provided
             };
             
             // Add scores
@@ -1605,27 +1624,104 @@
         function displayQuadrantDescription(quadrant) {
             const descriptions = {
                 gardener: {
-                    title: 'The Gardener',
-                    desc: 'You believe AI outcomes can be positive and that we have meaningful agency to shape its development. You see potential for beneficial transformation through thoughtful governance, ethical frameworks, and proactive stewardship.'
+                    title: '🌱 The Gardener',
+                    desc: 'You believe AI outcomes can be positive and that we have meaningful agency to shape its development. You see potential for beneficial transformation through thoughtful governance, ethical frameworks, and proactive stewardship.',
+                    meaning: 'You see AI as a technology that can be cultivated toward beneficial ends through intentional action. You recognize both the opportunities and the responsibility we bear in shaping its trajectory. Your worldview combines optimism about possibilities with a strong sense of agency—you believe thoughtful intervention can guide AI toward flourishing rather than harm.',
+                    characteristics: [
+                        'You likely support proactive governance frameworks and ethical guidelines',
+                        'You see human judgment and values as essential inputs to AI development',
+                        'You believe in building institutions and norms that shape technology',
+                        'You view AI safety and alignment as tractable problems worthy of investment',
+                        'You see participation in governance as both possible and important'
+                    ],
+                    questions: [
+                        'What mechanisms give you confidence that human agency can meaningfully shape AI development at scale?',
+                        'How do you think about the tension between speed of development and quality of governance?',
+                        'Where do you see the most promising leverage points for positive intervention?',
+                        'What would it take to lose your optimism about our capacity to shape beneficial outcomes?'
+                    ]
                 },
                 sentinel: {
-                    title: 'The Sentinel',
-                    desc: 'You believe we have agency to shape AI but are concerned about negative outcomes without proper safeguards. You emphasize the importance of robust governance, safety measures, and vigilant oversight to prevent harm.'
+                    title: '🛡️ The Sentinel',
+                    desc: 'You believe we have agency to shape AI but are concerned about negative outcomes without proper safeguards. You emphasize the importance of robust governance, safety measures, and vigilant oversight to prevent harm.',
+                    meaning: 'You believe in our power to influence AI\'s trajectory but are acutely aware of the risks. Your position combines high agency with concern about default outcomes—you see danger in complacency and believe active intervention is necessary to avoid negative scenarios. You likely view governance as essential infrastructure, not optional overhead.',
+                    characteristics: [
+                        'You prioritize safety and risk mitigation in AI development',
+                        'You likely support stronger regulation and oversight mechanisms',
+                        'You view precautionary principles as justified given the stakes',
+                        'You see clear failure modes and work to prevent them',
+                        'You balance urgency about risks with belief in our capacity to address them'
+                    ],
+                    questions: [
+                        'What are the most critical risks you see that others might be underestimating?',
+                        'How do you think about the right balance between enabling innovation and ensuring safety?',
+                        'What factors would shift your view toward either more or less optimism about outcomes?',
+                        'Which governance mechanisms do you see as most promising for managing AI risks?'
+                    ]
                 },
                 witness: {
-                    title: 'The Witness',
-                    desc: 'You see both limited agency and concerning outcomes. You observe AI development as largely beyond human control with potentially negative consequences, viewing yourself as documenting rather than directing this transformation.'
+                    title: '👁️ The Witness',
+                    desc: 'You see both limited agency and concerning outcomes. You observe AI development as largely beyond human control with potentially negative consequences, viewing yourself as documenting rather than directing this transformation.',
+                    meaning: 'You observe powerful forces in motion that feel beyond meaningful human control. Your position combines concern about outcomes with skepticism about our capacity to alter the trajectory. You may see AI development as driven by forces—economic, competitive, technological—that overwhelm attempts at governance. You focus on understanding and perhaps adapting to changes rather than directing them.',
+                    characteristics: [
+                        'You see powerful systemic forces (markets, competition, incentives) as dominant',
+                        'You\'re skeptical of governance institutions\' capacity to shape outcomes',
+                        'You may focus on resilience and adaptation rather than prevention',
+                        'You observe patterns others miss but feel limited in changing them',
+                        'You value clear-eyed assessment over optimistic framing'
+                    ],
+                    questions: [
+                        'What would need to change for you to see greater human agency in shaping AI?',
+                        'Are there any leverage points you see as potentially effective?',
+                        'How do you think about individual or collective responsibility in a system you view as largely beyond control?',
+                        'What role do you see for documentation, research, or raising awareness?'
+                    ]
                 },
                 believer: {
-                    title: 'The Believer',
-                    desc: 'You are optimistic about AI outcomes but see limited human agency in shaping its path. You believe beneficial outcomes will emerge through market forces, technological momentum, or inherent properties of intelligence itself.'
+                    title: '🙏 The Believer',
+                    desc: 'You are optimistic about AI outcomes but see limited human agency in shaping its path. You believe beneficial outcomes will emerge through market forces, technological momentum, or inherent properties of intelligence itself.',
+                    meaning: 'You hold confidence in positive outcomes but not necessarily in human control. You may trust in market mechanisms, emergent properties of intelligence, or technological trajectories to produce beneficial results. Your position suggests faith in systems larger than any individual or institution—whether that\'s innovation ecosystems, evolutionary dynamics, or the inherent alignment between intelligence and flourishing.',
+                    characteristics: [
+                        'You likely have faith in market mechanisms to surface good outcomes',
+                        'You may be skeptical of heavy-handed governance or regulation',
+                        'You see positive outcomes as likely even without strong intervention',
+                        'You trust in emergence, evolution, or inherent properties of intelligence',
+                        'You may view attempts at control as futile or counterproductive'
+                    ],
+                    questions: [
+                        'What is the source of your confidence about positive outcomes?',
+                        'How do you think about scenarios where markets or emergence fail?',
+                        'Is there any role for governance or intervention in your worldview?',
+                        'What evidence would shift your view about the likelihood of positive outcomes?'
+                    ]
                 }
             };
             
             const desc = descriptions[quadrant];
             const html = `
-                <h3>${desc.title}</h3>
-                <p>${desc.desc}</p>
+                <div style="margin-top: 30px;">
+                    <h3 style="color: #2c3e50; font-size: 1.5em; margin-bottom: 15px;">${desc.title}</h3>
+                    <p style="color: #555; line-height: 1.7; margin-bottom: 25px; font-size: 1.05em;">${desc.desc}</p>
+                    
+                    <div style="background: #f8f9fa; padding: 20px; border-radius: 12px; margin-bottom: 20px; border-left: 4px solid #667eea;">
+                        <h4 style="color: #667eea; margin-bottom: 12px; font-size: 1.1em;">📍 What Your Position Means</h4>
+                        <p style="color: #555; line-height: 1.7;">${desc.meaning}</p>
+                    </div>
+                    
+                    <div style="background: #f8f9fa; padding: 20px; border-radius: 12px; margin-bottom: 20px; border-left: 4px solid #4CAF50;">
+                        <h4 style="color: #4CAF50; margin-bottom: 12px; font-size: 1.1em;">💡 Key Characteristics</h4>
+                        <ul style="margin-left: 20px; color: #555; line-height: 1.9;">
+                            ${desc.characteristics.map(c => `<li>${c}</li>`).join('')}
+                        </ul>
+                    </div>
+                    
+                    <div style="background: #f8f9fa; padding: 20px; border-radius: 12px; border-left: 4px solid #764ba2;">
+                        <h4 style="color: #764ba2; margin-bottom: 12px; font-size: 1.1em;">🤔 Questions to Consider</h4>
+                        <ul style="margin-left: 20px; color: #555; line-height: 1.9;">
+                            ${desc.questions.map(q => `<li>${q}</li>`).join('')}
+                        </ul>
+                    </div>
+                </div>
             `;
             document.getElementById('quadrant-description').innerHTML = html;
         }
@@ -1640,6 +1736,47 @@
             document.getElementById('v2-bridge').classList.add('hidden');
             document.getElementById('v2-questions').classList.remove('hidden');
             document.getElementById('v2-questions').scrollIntoView({ behavior: 'smooth' });
+        }
+
+        // ==================== EMAIL COLLECTION ====================
+        function saveEmail() {
+            const emailInput = document.getElementById('user-email');
+            const email = emailInput.value.trim();
+            const errorDiv = document.getElementById('email-error');
+            const confirmationDiv = document.getElementById('email-confirmation');
+            const saveBtn = document.getElementById('save-email-btn');
+            
+            // Reset error state
+            errorDiv.style.display = 'none';
+            errorDiv.textContent = '';
+            
+            // Validate email
+            const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            if (!email) {
+                errorDiv.textContent = 'Please enter an email address';
+                errorDiv.style.display = 'block';
+                return;
+            }
+            
+            if (!emailRegex.test(email)) {
+                errorDiv.textContent = 'Please enter a valid email address';
+                errorDiv.style.display = 'block';
+                return;
+            }
+            
+            // Save email
+            userEmail = email;
+            
+            // Show confirmation
+            confirmationDiv.style.display = 'block';
+            
+            // Disable input and button
+            emailInput.disabled = true;
+            saveBtn.disabled = true;
+            saveBtn.style.opacity = '0.6';
+            saveBtn.style.cursor = 'not-allowed';
+            
+            console.log('Email saved:', userEmail);
         }
 
         // ==================== V2 FORM SUBMISSION ====================
